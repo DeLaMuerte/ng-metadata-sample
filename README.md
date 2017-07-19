@@ -6,6 +6,8 @@ A sample project using [AngularJS](https://angularjs.org/) 1.6.x and [ng-metadat
 
 * cd to repository
 * run `npm install`
+* run `npm run watch` or `npm run dev` or `npm run prod`
+* view */target/index.html* in browser
 
 ## Featured frameworks, technologys, depedencies, ...
 
