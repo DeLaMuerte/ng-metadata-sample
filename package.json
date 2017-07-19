@@ -1,0 +1,65 @@
+{
+  "name": "gs-ng-metadata-sample",
+  "version": "0.0.1",
+  "description": "A sample project demonstrating AngularJS 1.6.x with ng-metadata",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GregorSondermeier/ng-metadata-sample"
+  },
+  "author": {
+    "name": "Gregor Sondermeier",
+    "email": "gregor.sondermeier.github@gmail.com>",
+    "url": "https://github.com/GregorSondermeier"
+  },
+  "keywords": [
+    "angular",
+    "angularjs",
+    "bootstrap",
+    "bootstrap 4",
+    "ng-metadata",
+    "typescript",
+    "webpack"
+  ],
+  "homepage": "https://github.com/GregorSondermeier/ng-metadata-sample",
+  "bugs": {
+    "url": "https://github.com/GregorSondermeier/ng-metadata-sample/issues"
+  },
+  "licence": "MIT",
+  "private": true,
+  "scripts": {
+    "dev": "webpack --progress --config webpack.config.dev.js",
+    "watch": "npm run dev -- --watch",
+    "prod": "webpack --progress --config webpack.config.prod.js",
+    "postinstall": ""
+  },
+  "dependencies": {
+    "angular": "^1.6.5",
+    "bootstrap": "^4.0.0-alpha.6",
+    "jquery": "^3.2.1",
+    "ng-metadata": "^4.0.1",
+    "rxjs": "^5.4.2"
+  },
+  "devDependencies": {
+    "@types/angular": "^1.6.27",
+    "@types/core-js": "^0.9.42",
+    "@types/jquery": "^3.2.9",
+    "@types/node": "^8.0.14",
+    "copy-webpack-plugin": "^4.0.1",
+    "css-loader": "^0.28.4",
+    "extract-text-webpack-plugin": "^3.0.0",
+    "file-loader": "^0.11.2",
+    "html-webpack-plugin": "^2.29.0",
+    "ng-annotate-loader": "^0.6.1",
+    "node-sass": "^4.5.3",
+    "raw-loader": "^0.5.1",
+    "sass-loader": "^6.0.6",
+    "strip-loader": "^0.1.2",
+    "style-loader": "^0.18.2",
+    "ts-loader": "^2.3.0",
+    "tslib": "^1.7.1",
+    "typescript": "^2.4.1",
+    "url-loader": "^0.5.9",
+    "webpack": "^3.3.0",
+    "webpack-merge": "^4.1.0"
+  }
+}
