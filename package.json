@@ -1,0 +1,29 @@
+{
+  "name": "gs-ng-metadata-sample",
+  "version": "0.0.1",
+  "description": "A sample project demonstrating AngularJS 1.6.x with ng-metadata",
+  "author": {
+    "name": "Gregor Sondermeier",
+    "email": "gregor.sondermeier.github@gmail.com>",
+    "url": "https://github.com/GregorSondermeier"
+  },
+  "keywords": [
+    "angular",
+    "angularjs",
+    "bootstrap",
+    "bootstrap 4",
+    "ng-metadata",
+    "typescript",
+    "webpack"
+  ],
+  "homepage": "https://github.com/GregorSondermeier/ng-metadata-sample",
+  "bugs": {
+    "url": "https://github.com/GregorSondermeier/ng-metadata-sample/issues"
+  },
+  "licence": "MIT",
+  "private": true,
+  "dependencies": {
+    "angular": "1.6.5"
+  },
+  "devDependencies": {}
+}
