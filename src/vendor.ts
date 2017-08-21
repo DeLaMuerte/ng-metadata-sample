@@ -6,3 +6,5 @@
 
 // import 'angular';
 // import 'ng-metadata/core';
+
+import 'reflect-metadata';

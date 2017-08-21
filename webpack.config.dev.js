@@ -30,14 +30,14 @@ module.exports = [
 				{
 					test: /\.ts$/,
 					use: [
-						{loader: 'ng-annotate-loader'},
+						{loader: 'ng-annotate-loader', options: {ngAnnotate: 'ng-annotate-patched', es6: true, explicitOnly: false}},
 						{loader: 'ts-loader'}
 					]
 				},
 				{
 					test: /\.js$/,
 					use: [
-						{loader: 'ng-annotate-loader'}
+						{loader: 'ng-annotate-loader', options: {ngAnnotate: 'ng-annotate-patched', es6: true, explicitOnly: false}}
 					]
 				},
 				{
