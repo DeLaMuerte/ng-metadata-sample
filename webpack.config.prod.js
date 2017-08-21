@@ -13,50 +13,65 @@ module.exports = [
 			vendor: './src/vendor.ts',
 			gs: './src/gs.ts'
 		},
-		output : {
+		output: {
 			path: targetPath,
-			filename : 'js/[name].js'
+			filename: 'js/[name].js'
 		},
 		resolve: {
 			extensions: ['.ts', '.js', '.css', '.scss', '.html']
 		},
 		module: {
-			loaders : [
+			rules: [
 				{
 					test: /\.ts$/,
-					loader: 'strip-loader?strip[]=debug,strip[]=console.debug,strip[]=console.log!ng-annotate-loader!ts-loader'
+					use: [
+						{loader: 'strip-loader', options: {strip: ['debug', 'console.debug', 'console.log']}},
+						{loader: 'ng-annotate-loader'},
+						{loader: 'ts-loader'}
+					]
 				},
 				{
 					test: /\.js$/,
-					loader: 'strip-loader?strip[]=debug,strip[]=console.debug,strip[]=console.log!ng-annotate-loader'
+					use: [
+						{loader: 'strip-loader', options: {strip: ['debug', 'console.debug', 'console.log']}},
+						{loader: 'ng-annotate-loader'}
+					]
 				},
 				{
-					test : /\.html$/,
-					loader : 'raw-loader'
+					test: /\.html$/,
+					use: [
+						{loader: 'raw-loader'}
+					]
 				},
 				{
-					test : /\.scss$/,
+					test: /\.scss$/,
 					exclude: /node_modules/,
-					loader: ExtractTextPlugin.extract({
+					use: ExtractTextPlugin.extract({
 						use: 'css-loader?-minimize&sourceMap!sass-loader?sourceMap',
 						fallback: 'style-loader'
 					})
 				},
 				{
-					test : /\.png$/,
-					loader : 'url-loader?limit=16384&mimetype=image/png'
+					test: /\.png$/,
+					use: [
+						{loader: 'url-loader', options: {limit: 16384, mimetype: 'image/png'}}
+					]
 				},
 				{
-					test : /\.svg(\?v=\d+\.\d+\.\d+)?$/,
-					loader : 'url-loader?limit=16384&mimetype=image/svg+xml'
+					test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+					use: [
+						{loader: 'url-loader', options: {limit: 16384, mimetype: 'image/svg+xml'}}
+					]
 				},
 				{
 					test: /(fontawesome).*\.(eot|otf|svg|ttf|woff|woff2)(\?v=\d+\.\d+\.\d+)?$/i,
-					loader: 'file-loader?name=./_fonts/font-awesome/[name].[ext]&publicPath=./../'
+					use: [
+						{loader: 'file-loader', options: {name: './_fonts/font-awesome/[name].[ext]', publicPath: './../'}}
+					]
 				}
 			]
 		},
-		plugins : [
+		plugins: [
 			new webpack.ProvidePlugin({
 				'$': 'jquery',
 				'jQuery': 'jquery',
