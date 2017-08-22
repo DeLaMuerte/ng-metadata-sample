@@ -3,5 +3,7 @@
 export function BaseConfig($routeProvider: ng.route.IRouteProvider) {'ngInject';
 	$routeProvider.when('/', {
 		template: '<gsc-base></gsc-base>'
+	}).otherwise({
+		redirectTo: '/'
 	});
 }
