@@ -34,4 +34,18 @@ export class Uribuilder implements gs.IUribuilder {
 		return './#!' + this.getPath(module, component, parameters)
 	};
 
+	public getModule(givenPath: string): string {
+		let retModule: string;
+
+		this.paths.forEach((components: Map<string, string>, module: string) => {
+			components.forEach((path: string) => {
+				if (givenPath == path) {
+					retModule = module;
+				}
+			});
+		});
+
+		return retModule;
+	};
+
 }
