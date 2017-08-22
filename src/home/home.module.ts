@@ -5,8 +5,8 @@ import {NgModule} from 'ng-metadata/core';
 import {Module1Module} from './../module1/module1.module';
 import {Module2Module} from './../module2/module2.module';
 
-import {BaseMainComponent} from './base.main.component';
-import {BaseConfig} from './base.config';
+import {HomeMainComponent} from './home.main.component';
+import {HomeConfig} from './home.config';
 
 @NgModule({
 	imports: [
@@ -15,10 +15,10 @@ import {BaseConfig} from './base.config';
 		Module2Module
 	],
 	declarations: [
-		BaseMainComponent
+		HomeMainComponent
 	],
 	providers: [
-		BaseConfig
+		HomeConfig
 	]
 })
-export class BaseModule {}
+export class HomeModule {}

@@ -1,12 +1,12 @@
 import * as angular from 'angular';
 import {bundle} from 'ng-metadata/core';
 
-import {BaseModule} from './../base/base.module';
+import {HomeModule} from '../home/home.module';
 
 export function gsInit() {
 	console.debug('gsInit()');
 	window.addEventListener('load', () => {
 		console.debug('loaded');
-		angular.bootstrap(document, [bundle(BaseModule).name], {strictDi: true});
+		angular.bootstrap(document, [bundle(HomeModule).name], {strictDi: true});
 	});
 }

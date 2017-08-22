@@ -1,8 +1,8 @@
 // import {Uribuilder} from '../_vanilla/Uribuilder';
 
-export function BaseConfig($routeProvider: ng.route.IRouteProvider) {'ngInject';
+export function HomeConfig($routeProvider: ng.route.IRouteProvider) {'ngInject';
 	$routeProvider.when('/', {
-		template: '<gsc-base></gsc-base>'
+		template: '<gsc-home></gsc-home>'
 	}).otherwise({
 		redirectTo: '/'
 	});
