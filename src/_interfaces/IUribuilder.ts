@@ -23,5 +23,10 @@ namespace gs {
 		 * @example: Uribuilder.getPath('module1', 'view', ':id') => './!#/module1/:id'
 		 */
 		getUri(module: string, component: string, parameters?: Array<string> | string): string;
+
+		/**
+		 * return the module of a path
+		 */
+		getModule(givenPath: string): string;
 	}
 }
