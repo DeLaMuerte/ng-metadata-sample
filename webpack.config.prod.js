@@ -26,7 +26,7 @@ module.exports = [
 					test: /\.ts$/,
 					use: [
 						{loader: 'strip-loader', options: {strip: ['debug', 'console.debug', 'console.log']}},
-						{loader: 'ng-annotate-loader'},
+						{loader: 'ng-annotate-loader', options: {ngAnnotate: 'ng-annotate-patched', es6: true, explicitOnly: false}},
 						{loader: 'ts-loader'}
 					]
 				},
@@ -34,7 +34,7 @@ module.exports = [
 					test: /\.js$/,
 					use: [
 						{loader: 'strip-loader', options: {strip: ['debug', 'console.debug', 'console.log']}},
-						{loader: 'ng-annotate-loader'}
+						{loader: 'ng-annotate-loader', options: {ngAnnotate: 'ng-annotate-patched', es6: true, explicitOnly: false}}
 					]
 				},
 				{
