@@ -1,0 +1,8 @@
+# exclude webstorm project folder
+/.idea
+
+# exclude node modules
+/node_modules
+
+# exclude target path
+/target
