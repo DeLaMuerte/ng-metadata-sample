@@ -7,6 +7,8 @@ import {ContactApiService} from './contact.api.service';
 })
 export class ContactIndexComponent implements OnInit {
 
+	private contactsPage: any;
+
 	constructor(
 		@Inject('ContactApiService') private contactApiService: ContactApiService) {}
 
@@ -21,6 +23,7 @@ export class ContactIndexComponent implements OnInit {
 			.$search()
 			.then((response) => {
 				console.debug(response.data);
+				this.contactsPage = response.data;
 			});
 	}
 
