@@ -1,0 +1,20 @@
+<h1>Contacts</h1>
+
+<button type="button" class="btn btn-primary" data-ng-click="$ctrl.$search()">get contacts</button>
+
+<table class="table">
+	<thead>
+		<tr>
+			<th>#</th>
+			<th>First Name</th>
+			<th>Last Name</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr data-ng-repeat="contact in $ctrl.contactsPage.rows">
+			<th scope="row">{{::$index}}</th>
+			<td>{{::contact.doc.firstName}}</td>
+			<td>{{::contact.doc.lastName}}</td>
+		</tr>
+	</tbody>
+</table>

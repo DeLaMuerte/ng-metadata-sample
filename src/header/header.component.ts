@@ -18,7 +18,6 @@ export class HeaderComponent implements OnInit {
 	}
 
 	public isActive(module: string): boolean {
-		console.debug('isActive()');
 		return module == Uribuilder.Instance.getModule(this.$location.path());
 	}
 
