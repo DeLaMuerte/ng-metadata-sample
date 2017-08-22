@@ -4,7 +4,9 @@ export class Uribuilder implements gs.IUribuilder {
 
 	private static instance: Uribuilder;
 
-	private paths: Map<string, Map<string, string>> = new Map<string, Map<string, string>>();
+	private paths: Map<string, Map<string, string>> = new Map<string, Map<string, string>>([
+		['home', new Map<string, string>([['index', '/']])]
+	]);
 
 	private constructor() {
 

@@ -7,7 +7,7 @@ import {Component, OnInit} from 'ng-metadata/core';
 export class Module2IndexComponent implements OnInit {
 
 	public ngOnInit(): void {
-		console.debug('Module2IndexComponent onInit()');
+		console.debug('Module2IndexComponent ngOnInit()');
 	}
 
 }

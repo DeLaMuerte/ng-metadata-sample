@@ -7,13 +7,7 @@
 </head>
 <body>
 
-	<ul>
-		<li><a data-ng-href="{{$root.Uribuilder.getUri('home', 'index')}}">Home</a></li>
-		<li><a data-ng-href="{{$root.Uribuilder.getUri('module1', 'index')}}">Module 1</a></li>
-		<li><a data-ng-href="{{$root.Uribuilder.getUri('module2', 'index')}}">Module 2</a></li>
-	</ul>
-
-	<ng-view></ng-view>
+	<gsc-app></gsc-app>
 
 	<link rel="stylesheet" href="./css/gs.css?<%- Date.now() %>">
 	<script src="./js/vendor.js?<%- Date.now() %>"></script>

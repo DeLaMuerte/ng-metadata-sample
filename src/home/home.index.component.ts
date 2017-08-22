@@ -1,5 +1,4 @@
 import {Component, Inject, OnInit} from 'ng-metadata/core';
-import {Uribuilder} from '../_vanilla/Uribuilder';
 
 @Component({
 	selector: 'gsc-home',
@@ -7,13 +6,8 @@ import {Uribuilder} from '../_vanilla/Uribuilder';
 })
 export class HomeIndexComponent implements OnInit {
 
-	constructor(@Inject('$rootScope') $rootScope: gs.IRootScopeService) {
-		$rootScope.Uribuilder = Uribuilder.Instance;
-		console.debug('$rootScope:', $rootScope);
-	}
-
 	public ngOnInit(): void {
-		console.debug('HomeIndexComponent onInit()');
+		console.debug('HomeIndexComponent ngOnInit()');
 	}
 
 }
