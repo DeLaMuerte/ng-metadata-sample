@@ -6,6 +6,9 @@ import {Component, Inject, OnInit} from 'ng-metadata/core';
 })
 export class HomeIndexComponent implements OnInit {
 
+	public constructor(
+		@Inject('$http') private $http: ng.IHttpService) {}
+
 	public ngOnInit(): void {
 		console.debug('HomeIndexComponent ngOnInit()');
 	}
