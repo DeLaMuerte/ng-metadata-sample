@@ -8,9 +8,9 @@
 <body>
 
 	<ul>
-		<li><a href="./#!/">Home</a></li>
-		<li><a href="./#!/module1">Module 1</a></li>
-		<li><a href="./#!/module2">Module 2</a></li>
+		<li><a data-ng-href="{{$root.Uribuilder.getUri('home', 'index')}}">Home</a></li>
+		<li><a data-ng-href="{{$root.Uribuilder.getUri('module1', 'index')}}">Module 1</a></li>
+		<li><a data-ng-href="{{$root.Uribuilder.getUri('module2', 'index')}}">Module 2</a></li>
 	</ul>
 
 	<ng-view></ng-view>

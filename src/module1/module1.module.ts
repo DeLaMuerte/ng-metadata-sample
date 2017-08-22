@@ -1,9 +1,16 @@
 import {NgModule} from 'ng-metadata/core';
-import {Module1MainComponent} from './module1.main.component';
+
+import {Module1Run} from './module1.run';
 import {Module1Config} from './module1.config';
+import {Module1IndexComponent} from './module1.index.component';
 
 @NgModule({
-	declarations: [Module1MainComponent],
-	providers: [Module1Config]
+	providers: [
+		Module1Run,
+		Module1Config
+	],
+	declarations: [
+		Module1IndexComponent
+	]
 })
 export class Module1Module {}
