@@ -66,7 +66,7 @@ module.exports = [
 				{
 					test: /(fontawesome).*\.(eot|otf|svg|ttf|woff|woff2)(\?v=\d+\.\d+\.\d+)?$/i,
 					use: [
-						{loader: 'file-loader', options: {name: './_fonts/font-awesome/[name].[ext]', publicPath: './../'}}
+						{loader: 'file-loader', options: {name: './fonts/font-awesome/[name].[ext]', publicPath: './../'}}
 					]
 				}
 			]
