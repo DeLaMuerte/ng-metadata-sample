@@ -1,0 +1,19 @@
+<div class="card bg-light">
+	<form class="card-body">
+		<div class="form-group row">
+			<div class="col">
+				<label for="gsc-contact-searchcard-searchriteria-query">Search Contacts</label>
+				<input type="text"
+					   data-ng-model="$ctrl.searchcriteria.query"
+					   class="form-control"
+					   id="gsc-contact-searchcard-searchriteria-query"
+					   placeholder="Search Contacts...">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col text-right">
+				<button type="submit" class="btn btn-primary" data-ng-click="$ctrl.$search()"><i class="fa fa-search"></i> Search</button>
+			</div>
+		</div>
+	</form>
+</div>

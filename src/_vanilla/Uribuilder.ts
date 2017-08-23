@@ -65,7 +65,9 @@ export class Uribuilder implements gs.IUribuilder {
 			path = params instanceof Array ? vsprintf(path, params) : sprintf(path, params);
 		}
 
-		return this.protocol + '//' + this.couchDbLocation + ':' + this.couchDbPort + path + '?' + $.param(query);
+		let uri = this.protocol + '//' + this.couchDbLocation + ':' + this.couchDbPort + path;
+
+		return query ? uri + '?' + $.param(query) : uri;
 	};
 
 }
