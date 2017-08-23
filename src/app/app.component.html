@@ -1,5 +1,11 @@
-<gsc-header></gsc-header>
-
-<div class="container">
-	<ng-view></ng-view>
+<div data-ng-switch="$root.userIsLoggedIn">
+	<div data-ng-switch-when="true">
+		<gsc-header></gsc-header>
+		<div class="container mb-5">
+			<ng-view></ng-view>
+		</div>
+	</div>
+	<div data-ng-switch-when="false">
+		<gsc-login></gsc-login>
+	</div>
 </div>

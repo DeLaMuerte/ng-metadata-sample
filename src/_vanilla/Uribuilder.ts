@@ -4,9 +4,15 @@ export class Uribuilder implements gs.IUribuilder {
 
 	private static instance: Uribuilder;
 
+	private readonly protocol: string = window.location.protocol;
+	private readonly couchDbLocation: string = window.location.hostname;
+	private readonly couchDbPort: number = 5984;
+
 	private paths: Map<string, Map<string, string>> = new Map<string, Map<string, string>>([
 		['home', new Map<string, string>([['index', '/']])]
 	]);
+
+	private restUris: Map<string, Map<string, string>> = new Map<string, Map<string, string>>();
 
 	private constructor() {
 
@@ -16,36 +22,52 @@ export class Uribuilder implements gs.IUribuilder {
 		return this.instance || (this.instance = new this());
 	}
 
-	public addPaths(module: string, components: Map<string, string>): void {
+	public setPaths(module: string, components: Map<string, string>): void {
 		this.paths.set(module, components);
 	}
 
-	public getPath(module: string, component: string, parameters?: Array<string> | string): string {
+	public getPath(module: string, component: string, params?: Array<string> | string): string {
 		let path: string = this.paths.get(module).get(component);
 
-		if (parameters != undefined) {
-			return parameters instanceof Array ? vsprintf(path, parameters) : sprintf(path, parameters);
+		if (params != undefined) {
+			return params instanceof Array ? vsprintf(path, params) : sprintf(path, params);
 		} else {
 			return path;
 		}
+	};
+
+	public getModule(path: string): string {
+		let module: string;
+
+		this.paths.forEach((components: Map<string, string>, currentModule: string) => {
+			components.forEach((currentPath: string) => {
+				if (path == currentPath) {
+					module = currentModule;
+				}
+			});
+		});
+
+		return module;
 	};
 
 	public getUri(module: string, component: string, parameters?: Array<string> | string): string {
 		return './#!' + this.getPath(module, component, parameters)
 	};
 
-	public getModule(givenPath: string): string {
-		let retModule: string;
+	public setRestUris(module: string, operations: Map<string, string>): void {
+		this.restUris.set(module, operations);
+	}
 
-		this.paths.forEach((components: Map<string, string>, module: string) => {
-			components.forEach((path: string) => {
-				if (givenPath == path) {
-					retModule = module;
-				}
-			});
-		});
+	public getRestUri(module: string, operation: string, params?: any, query?: any): string {
+		let path: string = this.restUris.get(module).get(operation);
 
-		return retModule;
+		if (params != undefined) {
+			path = params instanceof Array ? vsprintf(path, params) : sprintf(path, params);
+		}
+
+		let uri = this.protocol + '//' + this.couchDbLocation + ':' + this.couchDbPort + path;
+
+		return query ? uri + '?' + $.param(query) : uri;
 	};
 
 }

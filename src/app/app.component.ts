@@ -1,5 +1,6 @@
 import {Component, Inject, OnInit} from 'ng-metadata/core';
 import {Uribuilder} from '../_vanilla/Uribuilder';
+import {LoginApiService} from '../login/login.api.service';
 
 @Component({
 	selector: 'gsc-app',
@@ -7,12 +8,18 @@ import {Uribuilder} from '../_vanilla/Uribuilder';
 })
 export class AppComponent implements OnInit {
 
-	public constructor(@Inject('$rootScope') $rootScope: gs.IRootScopeService) {
-		$rootScope.Uribuilder = Uribuilder.Instance;
-	}
+	public constructor(
+		@Inject('$rootScope') private $rootScope: gs.IRootScopeService,
+		@Inject('LoginApiService') private loginApiService: LoginApiService) {
+			this.$rootScope.Uribuilder = Uribuilder.Instance;
+		}
 
 	public ngOnInit(): void {
-		console.debug('AppComponent ngOnInit()');
+		this.checkForAuthentication();
+	}
+
+	private checkForAuthentication() {
+		this.loginApiService.$read();
 	}
 
 }
