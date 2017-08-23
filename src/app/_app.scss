@@ -5,7 +5,7 @@ body {
 gsc-app {
 	& > .container {
 		margin-bottom: 3.5 * $spacer;
-		min-height: calc(100vh - #{7 * $spacer});
+		min-height: calc(100vh - #{6.5 * $spacer});
 		padding-top: 1.75 * $spacer;
 		background-color: $white;
 	}
