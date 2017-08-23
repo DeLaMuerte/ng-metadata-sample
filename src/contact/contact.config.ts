@@ -9,8 +9,9 @@ export function ContactConfig($routeProvider: ng.route.IRouteProvider) {'ngInjec
 	]));
 
 	Uribuilder.Instance.setRestUris('contact', new Map<string, string>([
-		['search',	'/contact/_all_docs'],
-		['read',	'/contact/%s'],
+		['list',	'/contacts/_all_docs'],
+		['search',	'/contacts/_find'],
+		['read',	'/contacts/%s'],
 	]));
 
 	$routeProvider.when(Uribuilder.Instance.getPath('contact', 'index'), {
