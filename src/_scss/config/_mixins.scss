@@ -1,0 +1,22 @@
+/**
+ * generates the prefixes for the common browser engines. use this to save some hassle.
+ *
+ * @parameter		$attribute		the attribute on which the prefixes should be applied
+ * @parameter		$rule			the rule for that attribute
+ *
+ * @example:
+ *     @include vendorsafe(transition, background-color 0.33s);
+ * @output:
+ *     -ms-transition: background-color 0.33s;
+ *     -o-transition: background-color 0.33s;
+ *     -moz-transition: background-color 0.33s;
+ *     -webkit-transition: background-color 0.33s;
+ *     transition: background-color 0.33s;
+ */
+@mixin vendorsafe($attribute, $rule...) {
+	-ms-#{$attribute}: $rule;
+	-o-#{$attribute}: $rule;
+	-moz-#{$attribute}: $rule;
+	-webkit-#{$attribute}: $rule;
+	#{$attribute}: $rule;
+}

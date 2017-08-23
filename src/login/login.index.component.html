@@ -1,0 +1,33 @@
+<div class="card">
+	<form class="card-body">
+		<div class="form-group row">
+			<div class="col">
+				<label for="cpc-login-username">Username:</label>
+				<input type="text"
+					   data-ng-model="$ctrl.credentials.name"
+					   class="form-control"
+					   id="cpc-login-username"
+					   placeholder="Username" />
+			</div>
+		</div>
+		<div class="form-group row">
+			<div class="col">
+				<label for="cpc-login-password">Password:</label>
+				<input type="password"
+					   data-ng-model="$ctrl.credentials.password"
+					   class="form-control"
+					   id="cpc-login-password"
+					   placeholder="Password">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col text-right">
+				<button type="submit"
+						data-ng-click="$ctrl.login()"
+						class="btn btn-primary">
+					<i class="fa fa-sign-in"></i> Login
+				</button>
+			</div>
+		</div>
+	</form>
+</div>

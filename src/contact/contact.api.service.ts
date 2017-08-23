@@ -5,7 +5,8 @@ import {Uribuilder} from '../_vanilla/Uribuilder';
 export class ContactApiService implements gs.IApiService {
 
 	constructor(
-		@Inject("$http") private $http: ng.IHttpService) {}
+		@Inject("$http") private $http: ng.IHttpService
+	) {}
 
 	public $list(): ng.IHttpPromise<any> {
 		return this.$http({
