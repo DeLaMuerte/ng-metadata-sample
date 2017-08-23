@@ -21,11 +21,9 @@ export class LoginApiService implements gs.IApiService {
 			withCredentials: true
 		}).then((response) => {
 			this.$rootScope.userIsLoggedIn = true;
-			console.debug('LOGIN SUCCESSFUL');
 			return response;
 		}, (reason) => {
 			this.$rootScope.userIsLoggedIn = false;
-			console.debug('LOGIN NOT SUCCESSFUL');
 			return reason;
 		})
 	}
@@ -39,7 +37,6 @@ export class LoginApiService implements gs.IApiService {
 			},
 			withCredentials: true
 		}).then((response: ng.IHttpPromiseCallbackArg<any>) => {
-			console.debug('login response:', response.data);
 			this.$rootScope.userIsLoggedIn = !!response.data.userCtx.name;
 			return response;
 		}, ((reason) => {
@@ -55,7 +52,6 @@ export class LoginApiService implements gs.IApiService {
 			withCredentials: true
 		}).then((response) => {
 			this.$rootScope.userIsLoggedIn = false;
-			console.debug('LOGOUT SUCCESSFUL');
 			return response;
 		})
 	}

@@ -17,8 +17,6 @@ export class ContactSearchcardComponent implements OnInit {
 	}
 
 	public $search(): void {
-		console.debug('$search()');
-		console.debug('searchcriteria:', this.searchcriteria);
 		this.searchFn.emit({searchcriteria: this.searchcriteria});
 	}
 
