@@ -13,14 +13,10 @@ export class ContactIndexComponent {
 		@Inject('ContactApiService') private contactApiService: ContactApiService) {}
 
 	public $search($event: {searchcriteria: {query: string}}) {
-		console.debug('$search()');
-		console.debug('$event:', $event);
 		this.contactApiService
 			.$search($event)
 			.then((response: ng.IHttpPromiseCallbackArg<any>) => {
-				console.debug(response.data);
 				this.contacts = response.data.docs;
-				console.debug('contacts:', this.contacts);
 			});
 	}
 

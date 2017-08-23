@@ -1,7 +1,6 @@
 import {Uribuilder} from '../_vanilla/Uribuilder';
 
 export function Module2Run() {
-	console.debug('Module2Run()');
 
 	Uribuilder.Instance.setPaths('module2', new Map<string, string>([
 		['index',	'/module2'],

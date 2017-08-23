@@ -1,24 +1,24 @@
-import {Component, Inject, OnInit} from 'ng-metadata/core';
+import {Component, Inject} from 'ng-metadata/core';
 import {Uribuilder} from '../_vanilla/Uribuilder';
+import {LoginApiService} from '../login/login.api.service';
 
 @Component({
 	selector: 'gsc-header',
 	template: require('./header.component.html')
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
 
-	private $location: ng.ILocationService;
-
-	public constructor(@Inject('$location') $location: ng.ILocationService) {
-		this.$location = $location;
-	}
-
-	public ngOnInit(): void {
-		console.debug('HeaderComponent ngOnInit()');
-	}
+	public constructor(
+		@Inject('$location') private $location: ng.ILocationService,
+		@Inject('LoginApiService') private loginApiService: LoginApiService
+	) {}
 
 	public isActive(module: string): boolean {
 		return module == Uribuilder.Instance.getModule(this.$location.path());
+	}
+
+	public logout(): void {
+		this.loginApiService.$delete();
 	}
 
 }
