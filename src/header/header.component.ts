@@ -1,5 +1,6 @@
 import {Component, Inject, OnInit} from 'ng-metadata/core';
 import {Uribuilder} from '../_vanilla/Uribuilder';
+import {LoginApiService} from '../login/login.api.service';
 
 @Component({
 	selector: 'gsc-header',
@@ -7,11 +8,10 @@ import {Uribuilder} from '../_vanilla/Uribuilder';
 })
 export class HeaderComponent implements OnInit {
 
-	private $location: ng.ILocationService;
-
-	public constructor(@Inject('$location') $location: ng.ILocationService) {
-		this.$location = $location;
-	}
+	public constructor(
+		@Inject('$location') private $location: ng.ILocationService,
+		@Inject('LoginApiService') private loginApiService: LoginApiService
+	) {}
 
 	public ngOnInit(): void {
 		console.debug('HeaderComponent ngOnInit()');
@@ -19,6 +19,10 @@ export class HeaderComponent implements OnInit {
 
 	public isActive(module: string): boolean {
 		return module == Uribuilder.Instance.getModule(this.$location.path());
+	}
+
+	public logout(): void {
+		this.loginApiService.$delete();
 	}
 
 }
