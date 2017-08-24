@@ -10,6 +10,10 @@ export class GsLocalstorage {
 		return this.instance || (this.instance = new this());
 	}
 
+	public setVersionedKey(key: string, versionedKey: string): void {
+		this.map.set(key, versionedKey);
+	}
+
 	public hasKey(key: string): boolean {
 		if (this.map.has(key)) {
 			return true;
@@ -26,8 +30,6 @@ export class GsLocalstorage {
 	public getStorage(key: string): any {
 		if (this.hasKey(key) && localStorage.getItem(this.getVersionedKey(key))) {
 			return JSON.parse(localStorage.getItem(this.getVersionedKey(key)));
-		} else {
-			return null;
 		}
 	}
 

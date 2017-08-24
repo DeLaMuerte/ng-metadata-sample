@@ -13,18 +13,18 @@ let record = Immutable.Record({
 	doneAt: null
 });
 
-export class Todo extends record implements gs.ITodo {
-	_id: string;
-	_rev: string;
-	title: string;
-	description: string;
-	state: gs.TodoState;
-	createdAt: gs.IDatetimeISOString;
-	modifiedAt: gs.IDatetimeISOString;
-	openedAt: gs.IDatetimeISOString;
-	doneAt: gs.IDatetimeISOString;
+export class Todo extends record implements gs.todo.ITodo {
+	public _id: string;
+	public _rev: string;
+	public title: string;
+	public description: string;
+	public state: gs.todo.TodoState;
+	public createdAt: gs.IDatetimeISOString;
+	public modifiedAt: gs.IDatetimeISOString;
+	public openedAt: gs.IDatetimeISOString;
+	public doneAt: gs.IDatetimeISOString;
 
-	constructor(args: gs.ITodo = {}) {
+	constructor(args: gs.todo.ITodo = {}) {
 		let _args = angular.copy(args);
 		super(_args);
 	}

@@ -1,3 +1,5 @@
 namespace gs {
-	export type TodoState = 'OPEN' | 'DONE';
+	export namespace todo {
+		export type TodoState = 'OPEN' | 'DONE';
+	}
 }

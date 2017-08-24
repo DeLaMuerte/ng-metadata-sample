@@ -38,6 +38,7 @@
     "bootstrap": "4.0.0-beta",
     "font-awesome": "4.7.0",
     "immutable": "3.8.1",
+    "immutable-angular": "^0.1.2",
     "jquery": "3.2.1",
     "ng-metadata": "4.0.1",
     "rxjs": "5.4.3",

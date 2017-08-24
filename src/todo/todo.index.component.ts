@@ -1,28 +1,27 @@
+import {List} from 'immutable';
 import {Component, Inject, OnInit} from 'ng-metadata/core';
 import {TodoService} from './todo.service';
 import {Page} from '../_models/Page';
 import {Todo} from './_models/Todo';
+import {TodoSearchcriteria} from './_models/TodoSearchcriteria';
 
 @Component({
 	selector: 'gsc-todo',
 	template: require('./todo.index.component.html')
 })
-export class TodoIndexComponent implements OnInit {
+export class TodoIndexComponent {
+
+	public todos: List<Todo>;
 
 	constructor(
 		@Inject('TodoService') private todoService: TodoService
 	) {}
 
-	public ngOnInit() {
-		this.$search();
-	}
-
-	public $search() {
+	public $search($event: TodoSearchcriteria) {
 		this.todoService
-			.$search({searchcriteria: {state: 'OPEN'}})
+			.$search($event)
 			.subscribe((todoPage: Page<Todo>) => {
-				console.debug('todoPage:', todoPage);
-				console.debug('todoPage.toJS():', todoPage.toJS());
+				this.todos = todoPage.docs;
 			});
 	}
 

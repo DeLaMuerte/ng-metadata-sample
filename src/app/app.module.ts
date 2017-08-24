@@ -1,6 +1,6 @@
 import * as ngRoute from 'angular-route';
 
-import {NgModule} from 'ng-metadata/core';
+import {bundle, NgModule} from 'ng-metadata/core';
 
 import {ContactModule} from '../contact/contact.module';
 import {HeaderModule} from '../header/header.module';

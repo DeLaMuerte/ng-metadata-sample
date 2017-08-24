@@ -1,1 +1,5 @@
 <h1>Todos</h1>
+
+<gsc-todo-searchcard (gs-search-fn)="$ctrl.$search($event)"></gsc-todo-searchcard>
+
+<gsc-todo-list [gs-todos]="$ctrl.todos"></gsc-todo-list>

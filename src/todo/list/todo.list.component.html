@@ -1,0 +1,18 @@
+<table class="table table-hover">
+	<thead>
+	<tr>
+		<th>#</th>
+		<th>Title</th>
+		<th>Description</th>
+		<th>State</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr data-ng-repeat="todo in $ctrl.todos">
+		<th scope="row">{{::$index}}</th>
+		<td>{{::todo.title}}</td>
+		<td>{{::todo.description}}</td>
+		<td>{{::todo.state}}</td>
+	</tr>
+	</tbody>
+</table>

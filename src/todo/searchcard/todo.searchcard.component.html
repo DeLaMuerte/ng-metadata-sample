@@ -1,0 +1,23 @@
+<div class="card bg-light">
+	<form class="card-body">
+		<div class="form-group row">
+			<div class="col">
+				<label for="gsc-contact-searchcard-searchriteria-selector-state">Search Todos</label>
+				<select type="text"
+						data-ng-model="$ctrl.searchcriteria.selector.state"
+						class="form-control"
+						id="gsc-contact-searchcard-searchriteria-selector-state"
+						title="Status">
+					<option value="">- All States -</option>
+					<option value="OPEN">Open</option>
+					<option value="DONE">Done</option>
+				</select>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col text-right">
+				<button type="submit" class="btn btn-primary" data-ng-click="$ctrl.$search()"><i class="fa fa-search"></i> Search</button>
+			</div>
+		</div>
+	</form>
+</div>

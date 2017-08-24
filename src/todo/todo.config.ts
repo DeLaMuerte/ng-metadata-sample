@@ -1,4 +1,5 @@
 import {Uribuilder} from '../_vanilla/Uribuilder';
+import {GsLocalstorage} from '../_vanilla/localstorage';
 
 export function TodoConfig($routeProvider: ng.route.IRouteProvider) {'ngInject';
 
@@ -13,6 +14,8 @@ export function TodoConfig($routeProvider: ng.route.IRouteProvider) {'ngInject';
 		['search',	'/todos/_find'],
 		['read',	'/todos/%s']
 	]));
+
+	GsLocalstorage.Instance.setVersionedKey('GscTodoSearchcard_Searchcriteria', 'GscTodoSearchcard_Searchcriteria_0')
 
 	$routeProvider.when(Uribuilder.Instance.getPath('todo', 'index'), {
 		template: '<gsc-todo></gsc-todo>'
