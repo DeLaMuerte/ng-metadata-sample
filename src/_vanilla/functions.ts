@@ -1,3 +1,5 @@
+import * as angular from "angular";
+
 export function gsAlert(str: string): void {
 	alert(str);
 }
@@ -38,4 +40,20 @@ export function sno(object: any, path: string): any {
 		key = keys.shift();
 	}
 	return object;
+}
+
+/**
+ * returns a new object which contains all of the original object's keys that have a truthy value
+ */
+export function compact(object: any): any {
+	let compactedObj = {};
+	Object.keys(object).forEach((k: string) => {
+		if (object[k]) {
+			compactedObj[k] = object[k];
+			if (angular.isObject(compactedObj[k]) && !angular.isArray(compactedObj[k])) {
+				compactedObj[k] = compact(compactedObj[k]);
+			}
+		}
+	});
+	return compactedObj;
 }
