@@ -11,7 +11,7 @@ export function gsAlert(str: string): void {
  * @param path
  * @return
  */
-export function sno(object: any, path:string): any {
+export function sno(object: any, path: string): any {
 	let keys: Array<string> = path.split("?.");
 	keys.shift();
 
