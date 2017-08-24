@@ -6,7 +6,7 @@ import {ContactModule} from '../contact/contact.module';
 import {HeaderModule} from '../header/header.module';
 import {HomeModule} from '../home/home.module';
 import {LoginModule} from '../login/login.module';
-import {Module2Module} from '../module2/module2.module';
+import {TodoModule} from '../todo/todo.module';
 
 import {AppConfig} from './app.config';
 import {AppComponent} from './app.component';
@@ -19,7 +19,7 @@ import {AppComponent} from './app.component';
 		HeaderModule,
 		HomeModule,
 		LoginModule,
-		Module2Module
+		TodoModule
 	],
 	providers: [
 		AppConfig
