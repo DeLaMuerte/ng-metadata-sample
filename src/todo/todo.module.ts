@@ -1,13 +1,15 @@
 import {NgModule} from 'ng-metadata/core';
 
-import {TodoRun} from './todo.run';
 import {TodoConfig} from './todo.config';
 import {TodoIndexComponent} from './todo.index.component';
+import {TodoApiService} from './todo.api.service';
+import {TodoService} from './todo.service';
 
 @NgModule({
 	providers: [
-		TodoRun,
-		TodoConfig
+		TodoConfig,
+		TodoApiService,
+		TodoService
 	],
 	declarations: [
 		TodoIndexComponent
