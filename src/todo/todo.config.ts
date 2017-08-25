@@ -20,4 +20,8 @@ export function TodoConfig($routeProvider: ng.route.IRouteProvider) {'ngInject';
 	$routeProvider.when(Uribuilder.Instance.getPath('todo', 'index'), {
 		template: '<gsc-todo></gsc-todo>'
 	});
+
+	$routeProvider.when(Uribuilder.Instance.getPath('todo', 'view', ':id'), {
+		template: '<gsc-todo-view></gsc-todo-view>'
+	});
 }

@@ -16,8 +16,16 @@ export class TodoService {
 	public $search(searchcriteria: TodoSearchcriteria): Rx.Observable<Page<Todo>> {
 		return Rx.Observable
 			.fromPromise(this.todoApiService.$search(searchcriteria))
-			.map((response: ng.IHttpPromiseCallbackArg<any>) => {
+			.map((response: ng.IHttpPromiseCallbackArg<any>): Page<Todo> => {
 				return new Page<Todo>(response.data, Todo);
+			})
+	}
+
+	public $read(id: string): Rx.Observable<Todo> {
+		return Rx.Observable
+			.fromPromise(this.todoApiService.$read(id))
+			.map((response: ng.IHttpPromiseCallbackArg<any>): Todo => {
+				return new Todo(response.data);
 			})
 	}
 }

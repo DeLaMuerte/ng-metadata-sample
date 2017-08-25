@@ -7,6 +7,7 @@ import {TodoService} from './todo.service';
 import {TodoListComponent} from './list/todo.list.component';
 
 import {TodoSearchcardComponent} from './searchcard/todo.searchcard.component';
+import {TodoViewComponent} from './view/todo.view.component';
 @NgModule({
 	providers: [
 		TodoConfig,
@@ -16,7 +17,8 @@ import {TodoSearchcardComponent} from './searchcard/todo.searchcard.component';
 	declarations: [
 		TodoIndexComponent,
 		TodoListComponent,
-		TodoSearchcardComponent
+		TodoSearchcardComponent,
+		TodoViewComponent
 	]
 })
 export class TodoModule {}

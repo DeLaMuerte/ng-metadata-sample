@@ -23,6 +23,18 @@ export class TodoApiService implements gs.IApiService {
 			data: searchcriteria.update('selector', (selector) => {
 				return compact(selector);
 			})
-		})
+		});
+	}
+
+	public $read(id: string): ng.IHttpPromise<any> {
+		return this.$http({
+			method: 'GET',
+			url: Uribuilder.Instance.getRestUri('todo', 'read', id),
+			headers: {
+				'Accept': 'application/json',
+				'Content-type': 'application/json'
+			},
+			withCredentials: true
+		});
 	}
 }
