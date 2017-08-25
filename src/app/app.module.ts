@@ -10,10 +10,13 @@ import {TodoModule} from '../todo/todo.module';
 
 import {AppConfig} from './app.config';
 import {AppComponent} from './app.component';
+import {CommonModule} from '../common/common.module';
 
 @NgModule({
 	imports: [
 		ngRoute,
+
+		CommonModule,
 
 		ContactModule,
 		HeaderModule,
