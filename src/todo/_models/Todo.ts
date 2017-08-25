@@ -1,7 +1,7 @@
 import * as angular from 'angular';
-import * as Immutable from 'immutable';
+import {Record} from 'immutable';
 
-let record = Immutable.Record({
+let record = Record({
 	_id: null,
 	_rev: null,
 	title: null,
