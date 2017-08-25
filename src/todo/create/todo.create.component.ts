@@ -1,37 +1,31 @@
 import {Component, Inject, OnInit} from 'ng-metadata/core';
 import {Todo} from '../_models/Todo';
 import {TodoService} from '../todo.service';
+import {Uribuilder} from '../../_vanilla/Uribuilder';
 
 @Component({
-	selector: 'gsc-todo-edit',
-	template: require('./todo.edit.component.html')
+	selector: 'gsc-todo-create',
+	template: require('./todo.create.component.html')
 })
-export class TodoEditComponent implements OnInit {
+export class TodoCreateComponent implements OnInit {
 
 	public todoJs: gs.todo.ITodo;
 
 	constructor(
 		@Inject('$routeParams') private $routeParams: ng.route.IRouteParamsService,
+		@Inject('$location') private $location: ng.ILocationService,
 		@Inject('TodoService') private todoService: TodoService
 	) {}
 
 	public ngOnInit(): void {
-		this.$read(this.$routeParams.id);
+		this.todoJs = new Todo().toJS();
 	}
 
-	private $read(id: string): void {
+	public $create(): void {
 		this.todoService
-			.$read(id)
+			.$create(new Todo(this.todoJs))
 			.subscribe((todo: Todo) => {
-				this.todoJs = todo.toJS();
-			});
-	}
-
-	public $update(): void {
-		this.todoService
-			.$update(new Todo(this.todoJs))
-			.subscribe((updatedTodo: Todo) => {
-				this.todoJs = updatedTodo.toJS();
+				this.$location.path(Uribuilder.Instance.getPath('todo', 'edit', todo._id));
 			});
 	}
 

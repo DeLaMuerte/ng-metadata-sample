@@ -20,11 +20,27 @@ export class TodoService {
 			})
 	}
 
+	public $create(todo: Todo): Rx.Observable<Todo> {
+		return Rx.Observable
+			.fromPromise(this.todoApiService.$create(<Todo>todo.set('_id', undefined).set('_rev', undefined)))
+			.flatMap((response: ng.IHttpPromiseCallbackArg<gs.ICouchDbOperationResponse>) => {
+				return this.$read(response.data.id);
+			})
+	}
+
 	public $read(id: string): Rx.Observable<Todo> {
 		return Rx.Observable
 			.fromPromise(this.todoApiService.$read(id))
-			.map((response: ng.IHttpPromiseCallbackArg<any>): Todo => {
+			.map((response: ng.IHttpPromiseCallbackArg<gs.todo.ITodo>): Todo => {
 				return new Todo(response.data);
 			})
+	}
+
+	public $update(todo: Todo): Rx.Observable<Todo> {
+		return Rx.Observable
+			.fromPromise(this.todoApiService.$update(todo))
+			.flatMap((response: ng.IHttpPromiseCallbackArg<gs.ICouchDbOperationResponse>) => {
+				return this.$read(response.data.id)
+			});
 	}
 }

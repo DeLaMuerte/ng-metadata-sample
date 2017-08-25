@@ -12,7 +12,10 @@ export function TodoConfig($routeProvider: ng.route.IRouteProvider) {'ngInject';
 	Uribuilder.Instance.setRestUris('todo', new Map<string, string>([
 		['list',	'/todos/_all_docs'],
 		['search',	'/todos/_find'],
-		['read',	'/todos/%s']
+		['create',	'/todos'],
+		['read',	'/todos/%s'],
+		['update',	'/todos/%s'],
+		['delete',	'/todos/%s']
 	]));
 
 	GsLocalstorage.Instance.setVersionedKey('GscTodoSearchcard_Searchcriteria', 'GscTodoSearchcard_Searchcriteria_0');

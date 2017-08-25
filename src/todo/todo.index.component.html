@@ -2,4 +2,13 @@
 
 <gsc-todo-searchcard (gs-search-fn)="$ctrl.$search($event)"></gsc-todo-searchcard>
 
+<div class="text-right mt-3 mb-3">
+	<a data-ng-href="{{::$root.Uribuilder.getUri('todo', 'create')}}"
+	   title="Create New Todo"
+	   role="button"
+	   class="btn btn-light">
+		<i class="fa fa-file-o"></i> New
+	</a>
+</div>
+
 <gsc-todo-list [gs-todos]="$ctrl.todos"></gsc-todo-list>
