@@ -28,4 +28,6 @@ import {AppComponent} from './app.component';
 		AppComponent
 	]
 })
-export class AppModule {}
+class AppModule {}
+
+export const AppNg1Module: string = bundle(AppModule, ['immutable-angular']).name;
