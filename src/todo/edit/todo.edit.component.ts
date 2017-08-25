@@ -3,10 +3,10 @@ import {Todo} from '../_models/Todo';
 import {TodoService} from '../todo.service';
 
 @Component({
-	selector: 'gsc-todo-view',
-	template: require('./todo.view.component.html')
+	selector: 'gsc-todo-edit',
+	template: require('./todo.edit.component.html')
 })
-export class TodoViewComponent implements OnInit {
+export class TodoEditComponent implements OnInit {
 
 	public todo: gs.todo.ITodo;
 

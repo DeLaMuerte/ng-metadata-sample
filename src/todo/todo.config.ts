@@ -6,7 +6,7 @@ export function TodoConfig($routeProvider: ng.route.IRouteProvider) {'ngInject';
 	Uribuilder.Instance.setPaths('todo', new Map<string, string>([
 		['index',	'/todo'],
 		['create',	'/todo/create'],
-		['view',	'/todo/%s']
+		['edit',	'/todo/%s']
 	]));
 
 	Uribuilder.Instance.setRestUris('todo', new Map<string, string>([
@@ -25,7 +25,7 @@ export function TodoConfig($routeProvider: ng.route.IRouteProvider) {'ngInject';
 		template: '<gsc-todo-create></gsc-todo-create>'
 	});
 
-	$routeProvider.when(Uribuilder.Instance.getPath('todo', 'view', ':id'), {
-		template: '<gsc-todo-view></gsc-todo-view>'
+	$routeProvider.when(Uribuilder.Instance.getPath('todo', 'edit', ':id'), {
+		template: '<gsc-todo-edit></gsc-todo-edit>'
 	});
 }
