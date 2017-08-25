@@ -1,11 +1,10 @@
 gsc-debug {
-	.gsc-debug-json {
+	.card {
 		position: relative;
 
 		& > a {
 			position: absolute;
 			right: 0;
-			//width: 1.5em;
 		}
 	}
 }

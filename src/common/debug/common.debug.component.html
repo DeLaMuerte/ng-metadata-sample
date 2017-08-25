@@ -1,7 +1,9 @@
 <div data-ng-switch="$ctrl.expanded">
 	<button data-ng-switch-when="false" type="button" class="btn btn-info" data-ng-click="$ctrl.toggleExpanded(true)">Debug <code>{{$ctrl.modelName}}</code></button>
-	<div data-ng-switch-when="true" class="bg-light gsc-debug-json">
-		<a href="" class="badge-info" data-ng-click="$ctrl.toggleExpanded(false)"><i class="fa fa-fw fa-times"></i></a>
-		<pre>{{$ctrl.modelName}}: {{$ctrl.modelAsJson}}</pre>
+	<div data-ng-switch-when="true" class="card bg-light">
+		<a href="" class="badge badge-info" data-ng-click="$ctrl.toggleExpanded(false)"><i class="fa fa-times"></i></a>
+		<div class="card-body">
+			<pre class="mb-0">{{$ctrl.modelName}}: {{$ctrl.modelAsJson}}</pre>
+		</div>
 	</div>
 </div>
