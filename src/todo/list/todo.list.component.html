@@ -5,7 +5,7 @@
 		<th>Title</th>
 		<th>Description</th>
 		<th>State</th>
-		<th></th>
+		<th class="text-right"></th>
 	</tr>
 	</thead>
 	<tbody>
@@ -14,7 +14,7 @@
 		<td>{{::todo.title}}</td>
 		<td>{{::todo.description}}</td>
 		<td>{{::todo.state}}</td>
-		<td>
+		<td class="text-right">
 			<a data-ng-href="{{::$root.Uribuilder.getUri('todo', 'view', todo._id)}}"
 			   title="Edit Todo"
 			   class="badge badge-light">
