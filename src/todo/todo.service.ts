@@ -1,6 +1,5 @@
 import * as Rx from 'rxjs';
 import {Inject, Injectable} from 'ng-metadata/core';
-import {Uribuilder} from '../_vanilla/Uribuilder';
 import {Todo} from './_models/Todo';
 import {Page} from '../_models/Page';
 import {TodoApiService} from './todo.api.service';

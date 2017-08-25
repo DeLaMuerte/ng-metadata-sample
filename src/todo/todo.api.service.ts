@@ -1,6 +1,5 @@
 import {Inject, Injectable} from 'ng-metadata/core';
 import {Uribuilder} from '../_vanilla/Uribuilder';
-import {Todo} from './_models/Todo';
 import {TodoSearchcriteria} from './_models/TodoSearchcriteria';
 import {compact} from '../_vanilla/functions';
 
