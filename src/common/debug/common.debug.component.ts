@@ -45,7 +45,14 @@ export class CommonDebugComponent implements OnInit, OnChanges {
 	}
 
 	public get modelAsJson(): string {
-		return JSON.stringify(this.model, null, '  ');
+		let json: string;
+		try {
+			json = JSON.stringify(this.model, null, '  ');
+		} catch(e) {
+			json = e;
+		}
+		return json;
+
 	}
 
 
