@@ -24,7 +24,6 @@ export class TodoViewComponent implements OnInit {
 			.$read(id)
 			.subscribe((todo: Todo) => {
 				this.todo = todo.toJS();
-				console.debug('todo:', this.todo);
 			});
 	}
 
