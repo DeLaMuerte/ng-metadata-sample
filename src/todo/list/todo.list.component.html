@@ -8,7 +8,7 @@
 	</tr>
 	</thead>
 	<tbody>
-	<tr data-ng-repeat="todo in $ctrl.todos">
+	<tr data-immutable="$ctrl.todos" data-ng-repeat="todo in $ctrl.todos">
 		<th scope="row">{{::$index}}</th>
 		<td>{{::todo.title}}</td>
 		<td>{{::todo.description}}</td>

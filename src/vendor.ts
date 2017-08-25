@@ -7,6 +7,6 @@
 import 'angular';
 import 'angular-route';
 
-import 'immutable-angular';
+import 'angular-immutable';
 
 import 'reflect-metadata';
