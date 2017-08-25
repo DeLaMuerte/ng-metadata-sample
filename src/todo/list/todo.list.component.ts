@@ -1,5 +1,5 @@
 import {List} from 'immutable';
-import {Component, Input} from 'ng-metadata/core';
+import {Component, EventEmitter, Input, Output} from 'ng-metadata/core';
 import {Todo} from '../_models/Todo';
 
 @Component({
@@ -8,6 +8,7 @@ import {Todo} from '../_models/Todo';
 })
 export class TodoListComponent {
 
-	@Input('gsTodos') private todos: List<Todo> = List<Todo>([]);
+	@Input('gsTodos') public todos: List<Todo> = List<Todo>([]);
+	@Output('gsDeleteFn') public deleteFn: EventEmitter<Todo> = new EventEmitter<Todo>();
 
 }

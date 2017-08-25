@@ -63,4 +63,16 @@ export class TodoApiService implements gs.IApiService {
 			data: todo
 		})
 	}
+
+	public $delete(todo: Todo): ng.IHttpPromise<gs.ICouchDbOperationResponse> {
+		return this.$http({
+			method: 'DELETE',
+			url: Uribuilder.Instance.getRestUri('todo', 'delete', todo._id, {rev: todo._rev}),
+			headers: {
+				'Accept': 'application/json',
+				'Content-type': 'application/json'
+			},
+			withCredentials: true
+		})
+	}
 }

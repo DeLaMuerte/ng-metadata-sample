@@ -24,8 +24,8 @@ export class TodoCreateComponent implements OnInit {
 	public $create(): void {
 		this.todoService
 			.$create(new Todo(this.todoJs))
-			.subscribe((todo: Todo) => {
-				this.$location.path(Uribuilder.Instance.getPath('todo', 'edit', todo._id));
+			.subscribe((createdTodo: Todo) => {
+				this.$location.path(Uribuilder.Instance.getPath('todo', 'edit', createdTodo._id));
 			});
 	}
 

@@ -4,6 +4,7 @@ import {Record} from 'immutable';
 let record = Record({
 	_id: null,
 	_rev: null,
+	_deleted: null,
 	title: null,
 	description: null,
 	state: 'OPEN',
@@ -16,6 +17,7 @@ let record = Record({
 export class Todo extends record implements gs.todo.ITodo {
 	public _id: string;
 	public _rev: string;
+	public _deleted: boolean;
 	public title: string;
 	public description: string;
 	public state: gs.todo.TodoState;

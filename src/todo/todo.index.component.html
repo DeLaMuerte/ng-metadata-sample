@@ -11,4 +11,4 @@
 	</a>
 </div>
 
-<gsc-todo-list [gs-todos]="$ctrl.todos"></gsc-todo-list>
+<gsc-todo-list [gs-todos]="$ctrl.todos" (gs-delete-fn)="$ctrl.$delete($event)"></gsc-todo-list>

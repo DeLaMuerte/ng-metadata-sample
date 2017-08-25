@@ -17,7 +17,7 @@ export class TodoService {
 			.fromPromise(this.todoApiService.$search(searchcriteria))
 			.map((response: ng.IHttpPromiseCallbackArg<any>): Page<Todo> => {
 				return new Page<Todo>(response.data, Todo);
-			})
+			});
 	}
 
 	public $create(todo: Todo): Rx.Observable<Todo> {
@@ -25,7 +25,7 @@ export class TodoService {
 			.fromPromise(this.todoApiService.$create(<Todo>todo.set('_id', undefined).set('_rev', undefined)))
 			.flatMap((response: ng.IHttpPromiseCallbackArg<gs.ICouchDbOperationResponse>) => {
 				return this.$read(response.data.id);
-			})
+			});
 	}
 
 	public $read(id: string): Rx.Observable<Todo> {
@@ -33,7 +33,7 @@ export class TodoService {
 			.fromPromise(this.todoApiService.$read(id))
 			.map((response: ng.IHttpPromiseCallbackArg<gs.todo.ITodo>): Todo => {
 				return new Todo(response.data);
-			})
+			});
 	}
 
 	public $update(todo: Todo): Rx.Observable<Todo> {
@@ -41,6 +41,14 @@ export class TodoService {
 			.fromPromise(this.todoApiService.$update(todo))
 			.flatMap((response: ng.IHttpPromiseCallbackArg<gs.ICouchDbOperationResponse>) => {
 				return this.$read(response.data.id)
+			});
+	}
+
+	public $delete(todo: Todo): Rx.Observable<gs.ICouchDbOperationResponse> {
+		return Rx.Observable
+			.fromPromise(this.todoApiService.$delete(todo))
+			.map((response: ng.IHttpPromiseCallbackArg<gs.ICouchDbOperationResponse>) => {
+				return response.data;
 			});
 	}
 }

@@ -25,4 +25,14 @@ export class TodoIndexComponent {
 			});
 	}
 
+	public $delete($event: Todo) {
+		this.todoService
+			.$delete($event)
+			.subscribe((couchDbOperationResponse: gs.ICouchDbOperationResponse) => {
+				this.todos = this.todos
+					.delete(this.todos
+						.findIndex((todo) => todo._id == couchDbOperationResponse.id));
+			})
+	}
+
 }
