@@ -20,9 +20,7 @@ export class TodoApiService implements gs.IApiService {
 				'Content-type': 'application/json'
 			},
 			withCredentials: true,
-			data: searchcriteria.update('selector', (selector) => {
-				return compact(selector);
-			})
+			data: searchcriteria.update('selector', (selector) => compact(selector))
 		});
 	}
 
