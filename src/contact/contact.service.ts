@@ -1,14 +1,16 @@
 import * as Rx from 'rxjs';
-import {Inject, Injectable} from 'ng-metadata/core';
+import {Injectable} from 'ng-metadata/core';
 import {Contact} from './_models/Contact';
 import {Page} from '../_models/Page';
 import {ContactApiService} from './contact.api.service';
 import {ContactSearchcriteria} from './_models/ContactSearchcriteria';
+import {CommonAlertService} from '../common/alert/common.alert.service';
 
 @Injectable('contactService')
 export class ContactService {
 
 	constructor(
+		private commonAlertService: CommonAlertService,
 		private contactApiService: ContactApiService
 	) {}
 
@@ -34,6 +36,8 @@ export class ContactService {
 			.fromPromise(this.contactApiService.$search(_searchcriteria))
 			.map((response: ng.IHttpPromiseCallbackArg<any>): Page<Contact> => {
 				return new Page<Contact>(response.data, Contact);
+			}).do(null, (reason: ng.IHttpPromiseCallbackArg<any>) => {
+				this.commonAlertService.error('An error has occurred while performing search for contacts', reason.data);
 			});
 	}
 }
