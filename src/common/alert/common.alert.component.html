@@ -1,0 +1,6 @@
+<div data-ng-repeat="alert in $ctrl.alerts">
+	<div class="alert cp-no-margin" data-ng-class="::{'INFO': 'alert-info', 'SUCCESS': 'alert-success', 'WARNING': 'alert-warning', 'ERROR': 'alert-danger'}[alert.type]">
+		<span>{{::alert.message}}</span>
+		<button type="button" class="close" data-dismiss="alert" data-ng-click="$ctrl.close($index)">&times;</button>
+	</div>
+</div>
