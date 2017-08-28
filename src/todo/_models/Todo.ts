@@ -2,9 +2,9 @@ import * as angular from 'angular';
 import {Record} from 'immutable';
 
 let record = Record({
-	_id: null,
-	_rev: null,
-	_deleted: null,
+	_id: undefined,
+	_rev: undefined,
+	_deleted: undefined,
 	title: null,
 	description: null,
 	state: 'OPEN',

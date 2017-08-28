@@ -26,7 +26,7 @@ export class TodoService {
 
 	public $create(todo: Todo): Rx.Observable<Todo> {
 		return Rx.Observable
-			.fromPromise(this.todoApiService.$create(<Todo>todo.set('_id', undefined).set('_rev', undefined)))
+			.fromPromise(this.todoApiService.$create(todo))
 			.flatMap((response: ng.IHttpPromiseCallbackArg<gs.ICouchDbOperationResponse>) => {
 				return this.$read(response.data.id);
 			}).do(() => {
