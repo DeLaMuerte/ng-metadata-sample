@@ -4,7 +4,7 @@ import {TodoSearchcriteria} from './_models/TodoSearchcriteria';
 import {compact} from '../_vanilla/functions';
 import {Todo} from './_models/Todo';
 
-@Injectable('TodoApiService')
+@Injectable('todoApiService')
 export class TodoApiService implements gs.IApiService {
 
 	constructor(

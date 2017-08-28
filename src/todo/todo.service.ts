@@ -5,11 +5,11 @@ import {Page} from '../_models/Page';
 import {TodoApiService} from './todo.api.service';
 import {TodoSearchcriteria} from './_models/TodoSearchcriteria';
 
-@Injectable('TodoService')
+@Injectable('todoService')
 export class TodoService {
 
 	constructor(
-		@Inject('TodoApiService') private todoApiService: TodoApiService
+		private todoApiService: TodoApiService
 	) {}
 
 	public $search(searchcriteria: TodoSearchcriteria): Rx.Observable<Page<Todo>> {

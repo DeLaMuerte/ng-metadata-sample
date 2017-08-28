@@ -14,7 +14,8 @@ export class ContactIndexComponent {
 	public contacts: List<Contact>;
 
 	constructor(
-		@Inject('ContactService') private contactService: ContactService) {}
+		private contactService: ContactService
+	) {}
 
 	public $search($event: ContactSearchcriteria) {
 		this.contactService

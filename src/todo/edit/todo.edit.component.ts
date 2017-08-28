@@ -12,7 +12,7 @@ export class TodoEditComponent implements OnInit {
 
 	constructor(
 		@Inject('$routeParams') private $routeParams: ng.route.IRouteParamsService,
-		@Inject('TodoService') private todoService: TodoService
+		private todoService: TodoService
 	) {}
 
 	public ngOnInit(): void {

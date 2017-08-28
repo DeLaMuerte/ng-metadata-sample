@@ -1,5 +1,5 @@
 import {List} from 'immutable';
-import {Component, Inject, OnInit} from 'ng-metadata/core';
+import {Component, OnInit} from 'ng-metadata/core';
 import {TodoService} from './todo.service';
 import {Page} from '../_models/Page';
 import {Todo} from './_models/Todo';
@@ -17,7 +17,7 @@ export class TodoIndexComponent implements OnInit {
 	public searchcriteria: TodoSearchcriteria = new TodoSearchcriteria(GsLocalstorage.Instance.getStorage('GscTodo_Searchcriteria'));
 
 	constructor(
-		@Inject('TodoService') private todoService: TodoService
+		private todoService: TodoService
 	) {}
 
 	public ngOnInit(): void {

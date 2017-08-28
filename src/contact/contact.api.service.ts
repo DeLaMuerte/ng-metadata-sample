@@ -2,7 +2,7 @@ import {Inject, Injectable} from 'ng-metadata/core';
 import {Uribuilder} from '../_vanilla/Uribuilder';
 import {compact} from '../_vanilla/functions';
 
-@Injectable('ContactApiService')
+@Injectable('contactApiService')
 export class ContactApiService implements gs.IApiService {
 
 	constructor(

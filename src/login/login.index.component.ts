@@ -1,4 +1,4 @@
-import {Component, Inject} from 'ng-metadata/core';
+import {Component} from 'ng-metadata/core';
 import {LoginApiService} from './login.api.service';
 
 @Component({
@@ -8,7 +8,7 @@ import {LoginApiService} from './login.api.service';
 export class LoginIndexComponent {
 
 	constructor(
-		@Inject('LoginApiService') private loginApiService: LoginApiService
+		private loginApiService: LoginApiService
 	) {}
 
 	public credentials: {name: string, password: string} = {

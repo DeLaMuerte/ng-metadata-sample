@@ -5,11 +5,11 @@ import {Page} from '../_models/Page';
 import {ContactApiService} from './contact.api.service';
 import {ContactSearchcriteria} from './_models/ContactSearchcriteria';
 
-@Injectable('ContactService')
+@Injectable('contactService')
 export class ContactService {
 
 	constructor(
-		@Inject('ContactApiService') private contactApiService: ContactApiService
+		private contactApiService: ContactApiService
 	) {}
 
 	public $search(searchcriteria: ContactSearchcriteria): Rx.Observable<Page<Contact>> {
