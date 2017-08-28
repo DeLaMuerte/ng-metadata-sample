@@ -17,19 +17,21 @@ export class CommonAlertComponent implements OnInit {
 	public ngOnInit(): void {
 		this.commonAlertService
 			.alertObservable
-			.subscribe((alert: Alert) => {
-				this.alerts.push(<Alert>alert.set('promise', this.$timeout(() => {
-					this.close(this.alerts.findIndex((a) => {
-						return a.promise == alert.promise;
-					}));
-				}, 7900)));
+			.subscribe((addedAlert: Alert) => {
+				let mutatedAlert = <Alert>addedAlert.set('promise', this.$timeout(() => {
+					this.close(mutatedAlert);
+				}, 7850));
+				this.alerts.push(mutatedAlert);
 			});
 	}
 
-	close(idx: number): void {
+	public close (alert: Alert): void {
+		let idx = this.alerts.indexOf(alert);
 		if (idx != -1) {
-			this.$timeout.cancel(this.alerts[idx].promise);
-			this.alerts.splice(idx, 1);
+			this.$timeout(() => {
+				this.$timeout.cancel(alert.promise);
+				this.alerts.splice(idx, 1);
+			}, 150);
 		}
 	}
 }

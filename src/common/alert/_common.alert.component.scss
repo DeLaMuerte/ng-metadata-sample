@@ -1,0 +1,18 @@
+gsc-alerts {
+	position: fixed;
+	width: 100%;
+	bottom: 1.5 * $spacer;
+	z-index: 9999;
+
+	.alert {
+		position: relative;
+		z-index: 9999;
+		animation-name: gsa-fade-out;
+		animation-duration: .15s;
+		animation-delay: 7.85s;
+
+		span {
+			white-space: pre-wrap;
+		}
+	}
+}
