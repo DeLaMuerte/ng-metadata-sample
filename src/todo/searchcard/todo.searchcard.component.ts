@@ -8,7 +8,7 @@ import {GsLocalstorage} from '../../_vanilla/localstorage';
 })
 export class TodoSearchcardComponent implements OnInit {
 
-	public searchcriteria: TodoSearchcriteria = new TodoSearchcriteria(GsLocalstorage.Instance.getStorage('GscTodoSearchcard_Searchcriteria'));
+	public searchcriteria: gs.todo.ITodoSearchcriteria = new TodoSearchcriteria(GsLocalstorage.Instance.getStorage('GscTodoSearchcard_Searchcriteria')).toJS();
 
 	@Output('gsSearchFn') public searchFn: EventEmitter<TodoSearchcriteria> = new EventEmitter<TodoSearchcriteria>();
 
@@ -17,8 +17,8 @@ export class TodoSearchcardComponent implements OnInit {
 	}
 
 	public $search(): void {
-		GsLocalstorage.Instance.setStorage('GscTodoSearchcard_Searchcriteria', this.searchcriteria.toJS());
-		this.searchFn.emit(this.searchcriteria);
+		GsLocalstorage.Instance.setStorage('GscTodoSearchcard_Searchcriteria', this.searchcriteria);
+		this.searchFn.emit(new TodoSearchcriteria(this.searchcriteria));
 	}
 
 }

@@ -11,7 +11,7 @@ export class TodoApiService implements gs.IApiService {
 		@Inject("$http") private $http: ng.IHttpService
 	) {}
 
-	public $search(searchcriteria: TodoSearchcriteria): ng.IHttpPromise<any> {
+	public $search(searchcriteria: gs.todo.ITodoSearchcriteria): ng.IHttpPromise<any> {
 		return this.$http({
 			method: 'POST',
 			url: Uribuilder.Instance.getRestUri('todo', 'search'),
@@ -20,7 +20,7 @@ export class TodoApiService implements gs.IApiService {
 				'Content-type': 'application/json'
 			},
 			withCredentials: true,
-			data: searchcriteria.update('selector', (selector) => compact(selector))
+			data: compact(searchcriteria)
 		});
 	}
 

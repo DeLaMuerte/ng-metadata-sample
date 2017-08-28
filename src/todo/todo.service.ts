@@ -14,7 +14,7 @@ export class TodoService {
 
 	public $search(searchcriteria: TodoSearchcriteria): Rx.Observable<Page<Todo>> {
 		return Rx.Observable
-			.fromPromise(this.todoApiService.$search(searchcriteria))
+			.fromPromise(this.todoApiService.$search(searchcriteria.toJS()))
 			.map((response: ng.IHttpPromiseCallbackArg<any>): Page<Todo> => {
 				return new Page<Todo>(response.data, Todo);
 			});
