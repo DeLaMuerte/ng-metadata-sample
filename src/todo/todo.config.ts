@@ -18,7 +18,7 @@ export function TodoConfig($routeProvider: ng.route.IRouteProvider) {'ngInject';
 		['delete',	'/todos/%s']
 	]));
 
-	GsLocalstorage.Instance.setVersionedKey('GscTodoSearchcard_Searchcriteria', 'GscTodoSearchcard_Searchcriteria_0');
+	GsLocalstorage.Instance.setVersionedKey('GscTodo_Searchcriteria', 'GscTodo_Searchcriteria_0');
 
 	$routeProvider.when(Uribuilder.Instance.getPath('todo', 'index'), {
 		template: '<gsc-todo></gsc-todo>'

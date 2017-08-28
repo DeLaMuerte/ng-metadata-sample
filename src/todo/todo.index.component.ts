@@ -4,20 +4,29 @@ import {TodoService} from './todo.service';
 import {Page} from '../_models/Page';
 import {Todo} from './_models/Todo';
 import {TodoSearchcriteria} from './_models/TodoSearchcriteria';
+import {GsLocalstorage} from '../_vanilla/localstorage';
 
 @Component({
 	selector: 'gsc-todo',
 	template: require('./todo.index.component.html')
 })
-export class TodoIndexComponent {
+export class TodoIndexComponent implements OnInit {
 
 	public todos: List<Todo>;
+
+	public searchcriteria: TodoSearchcriteria = new TodoSearchcriteria(GsLocalstorage.Instance.getStorage('GscTodo_Searchcriteria'));
 
 	constructor(
 		@Inject('TodoService') private todoService: TodoService
 	) {}
 
-	public $search($event: TodoSearchcriteria) {
+	public ngOnInit(): void {
+		this.$search(this.searchcriteria);
+	}
+
+	public $search($event: TodoSearchcriteria): void {
+		this.searchcriteria = $event;
+		GsLocalstorage.Instance.setStorage('GscTodo_Searchcriteria', this.searchcriteria.toJS());
 		this.todoService
 			.$search($event)
 			.subscribe((todoPage: Page<Todo>) => {
@@ -25,7 +34,7 @@ export class TodoIndexComponent {
 			});
 	}
 
-	public $delete($event: Todo) {
+	public $delete($event: Todo): void {
 		this.todoService
 			.$delete($event)
 			.subscribe((couchDbOperationResponse: gs.ICouchDbOperationResponse) => {

@@ -8,7 +8,10 @@ import {Todo} from '../_models/Todo';
 })
 export class TodoListComponent {
 
-	@Input('gsTodos') public todos: List<Todo> = List<Todo>();
-	@Output('gsDeleteFn') public deleteFn: EventEmitter<Todo> = new EventEmitter<Todo>();
+	@Input('gsTodos')
+	public todos: List<Todo>;
+
+	@Output('gsDeleteFn')
+	public deleteFn: EventEmitter<Todo> = new EventEmitter<Todo>();
 
 }

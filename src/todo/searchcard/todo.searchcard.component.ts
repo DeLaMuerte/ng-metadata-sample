@@ -1,24 +1,27 @@
-import {Component, EventEmitter, OnInit, Output} from 'ng-metadata/core';
+import {Component, EventEmitter, Input, OnChanges, Output, SimpleChanges} from 'ng-metadata/core';
 import {TodoSearchcriteria} from '../_models/TodoSearchcriteria';
-import {GsLocalstorage} from '../../_vanilla/localstorage';
+import {TodoSearchcriteriaSelector} from '../_models/TodoSearchcriteriaSelector';
 
 @Component({
 	selector: 'gsc-todo-searchcard',
 	template: require('./todo.searchcard.component.html')
 })
-export class TodoSearchcardComponent implements OnInit {
+export class TodoSearchcardComponent implements OnChanges {
 
-	public searchcriteria: gs.todo.ITodoSearchcriteria = new TodoSearchcriteria(GsLocalstorage.Instance.getStorage('GscTodoSearchcard_Searchcriteria')).toJS();
+	@Input('gsSearchcriteria')
+	public searchcriteria: TodoSearchcriteria;
 
-	@Output('gsSearchFn') public searchFn: EventEmitter<TodoSearchcriteria> = new EventEmitter<TodoSearchcriteria>();
+	public selector: gs.todo.ITodoSearchcriteriaSelector;
 
-	public ngOnInit() {
-		this.$search();
+	@Output('gsSearchFn')
+	public searchFn: EventEmitter<gs.todo.ITodoSearchcriteria> = new EventEmitter<TodoSearchcriteria>();
+
+	public ngOnChanges(changesObj: SimpleChanges): void {
+		this.selector = changesObj.searchcriteria.currentValue.selector.toJS();
 	}
 
 	public $search(): void {
-		GsLocalstorage.Instance.setStorage('GscTodoSearchcard_Searchcriteria', this.searchcriteria);
-		this.searchFn.emit(new TodoSearchcriteria(this.searchcriteria));
+		this.searchFn.emit(<TodoSearchcriteria>this.searchcriteria.set('selector', new TodoSearchcriteriaSelector(this.selector)));
 	}
 
 }
