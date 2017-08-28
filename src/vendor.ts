@@ -1,8 +1,8 @@
-// import 'jquery';
+import 'jquery';
 
-// import 'bootstrap';
+import 'bootstrap/js/src/alert';
 
-// import 'rxjs';
+import 'rxjs';
 
 import 'angular';
 import 'angular-route';
