@@ -17,6 +17,7 @@
 				<label for="$ctrl.selector.state">State:</label>
 				<select type="text"
 						data-ng-model="$ctrl.selector.state"
+						data-ng-change="$ctrl.$search()"
 						class="form-control"
 						id="$ctrl.selector.state"
 						title="State">
