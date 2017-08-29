@@ -16,8 +16,25 @@ export class TodoService {
 	) {}
 
 	public $search(searchcriteria: TodoSearchcriteria): Rx.Observable<Page<Todo>> {
+
+		// transform the searchcriteria query to $or $regex for CouchDB
+		let _searchcriteria: gs.todo.ITodoSearchcriteria = searchcriteria.toJS();
+		_searchcriteria.selector.$or = [
+			{
+				title: {
+					$regex: `(?i)${_searchcriteria.selector.query}`
+				}
+			},
+			{
+				description: {
+					$regex: `(?i)${_searchcriteria.selector.query}`
+				}
+			}
+		];
+		delete _searchcriteria.selector.query;
+
 		return Rx.Observable
-			.fromPromise(this.todoApiService.$search(searchcriteria.toJS()))
+			.fromPromise(this.todoApiService.$search(_searchcriteria))
 			.map((response: ng.IHttpPromiseCallbackArg<any>): Page<Todo> => {
 				return new Page<Todo>(response.data, Todo);
 			}).do(null, (reason: ng.IHttpPromiseCallbackArg<any>) => {

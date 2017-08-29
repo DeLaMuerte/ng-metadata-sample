@@ -10,10 +10,21 @@
 	</thead>
 	<tbody>
 	<tr data-immutable="$ctrl.todos" data-ng-repeat="todo in $ctrl.todos">
-		<th scope="row">{{::$index}}</th>
-		<td>{{::todo.title}}</td>
-		<td>{{::todo.description}}</td>
-		<td>{{::todo.state}}</td>
+		<th scope="row">
+			{{::$index}}
+		</th>
+		<td>
+			<a data-ng-href="{{::$root.Uribuilder.getUri('todo', 'edit', todo._id)}}"
+			   title="Edit Todo">
+				{{::todo.title}}
+			</a>
+		</td>
+		<td>
+			{{::todo.description}}
+		</td>
+		<td>
+			{{::todo.state}}
+		</td>
 		<td class="text-right">
 			<a data-ng-href="{{::$root.Uribuilder.getUri('todo', 'edit', todo._id)}}"
 			   title="Edit Todo"
