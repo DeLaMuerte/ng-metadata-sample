@@ -1,0 +1,15 @@
+/**
+ * fade out via opacity
+ */
+@-webkit-keyframes gsa-fade-out {
+	from {opacity: 1}
+	to   {opacity: 0}
+}
+@-moz-keyframes gsa-fade-out {
+	from {opacity: 1}
+	to   {opacity: 0}
+}
+@keyframes gsa-fade-out {
+	from {opacity: 1}
+	to   {opacity: 0}
+}

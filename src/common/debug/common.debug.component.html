@@ -1,0 +1,7 @@
+<button data-ng-if="$ctrl.expanded == false" type="button" class="btn btn-info" data-ng-click="$ctrl.toggleExpanded(true)">Debug <code>{{$ctrl.modelName}}</code></button>
+<div data-ng-if="$ctrl.expanded == true" class="card bg-light">
+	<a href="" class="badge badge-info" data-ng-click="$ctrl.toggleExpanded(false)"><i class="fa fa-times"></i></a>
+	<div class="card-body">
+		<pre class="mb-0">{{$ctrl.modelName}}: {{$ctrl.modelAsJson}}</pre>
+	</div>
+</div>

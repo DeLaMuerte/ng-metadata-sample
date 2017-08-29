@@ -1,4 +1,6 @@
 import {Component, Input} from 'ng-metadata/core';
+import {List} from 'immutable';
+import {Contact} from '../_models/Contact';
 
 @Component({
 	selector: 'gsc-contact-list',
@@ -6,6 +8,6 @@ import {Component, Input} from 'ng-metadata/core';
 })
 export class ContactListComponent {
 
-	@Input('gsContacts') public contacts: any;
+	@Input('gsContacts') public contacts: List<Contact> = List<Contact>();
 
 }

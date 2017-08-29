@@ -1,4 +1,6 @@
 import {Component, EventEmitter, OnInit, Output} from 'ng-metadata/core';
+import {ContactSearchcriteria} from '../_models/ContactSearchcriteria';
+import {Contact} from '../_models/Contact';
 
 @Component({
 	selector: 'gsc-contact-searchcard',
@@ -6,18 +8,16 @@ import {Component, EventEmitter, OnInit, Output} from 'ng-metadata/core';
 })
 export class ContactSearchcardComponent implements OnInit {
 
-	public searchcriteria: {query: string} = {
-		query: ''
-	};
+	public searchcriteria: gs.contact.IContactSearchcriteria = new ContactSearchcriteria().toJS();
 
-	@Output('gsSearchFn') public searchFn: EventEmitter<{searchcriteria: {query: string}}> = new EventEmitter<{searchcriteria: {query: string}}>();
+	@Output('gsSearchFn') public searchFn: EventEmitter<ContactSearchcriteria> = new EventEmitter<ContactSearchcriteria>();
 
 	public ngOnInit() {
 		this.$search();
 	}
 
 	public $search(): void {
-		this.searchFn.emit({searchcriteria: this.searchcriteria});
+		this.searchFn.emit(new ContactSearchcriteria(this.searchcriteria));
 	}
 
 }

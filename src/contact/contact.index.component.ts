@@ -1,5 +1,9 @@
-import {Component, Inject, OnInit} from 'ng-metadata/core';
-import {ContactApiService} from './contact.api.service';
+import {Component, Inject} from 'ng-metadata/core';
+import {ContactSearchcriteria} from './_models/ContactSearchcriteria';
+import {ContactService} from './contact.service';
+import {Contact} from './_models/Contact';
+import {Page} from '../_models/Page';
+import {List} from 'immutable';
 
 @Component({
 	selector: 'gsc-contact',
@@ -7,16 +11,17 @@ import {ContactApiService} from './contact.api.service';
 })
 export class ContactIndexComponent {
 
-	public contacts: Array<any>;
+	public contacts: List<Contact>;
 
 	constructor(
-		@Inject('ContactApiService') private contactApiService: ContactApiService) {}
+		private contactService: ContactService
+	) {}
 
-	public $search($event: {searchcriteria: {query: string}}) {
-		this.contactApiService
+	public $search($event: ContactSearchcriteria) {
+		this.contactService
 			.$search($event)
-			.then((response: ng.IHttpPromiseCallbackArg<any>) => {
-				this.contacts = response.data.docs;
+			.subscribe((contactPage: Page<Contact>) => {
+				this.contacts = contactPage.docs;
 			});
 	}
 

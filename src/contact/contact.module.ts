@@ -5,11 +5,13 @@ import {ContactApiService} from './contact.api.service';
 import {ContactIndexComponent} from './contact.index.component';
 import {ContactListComponent} from './list/contact.list.component';
 import {ContactSearchcardComponent} from './searchcard/contact.searchcard.component';
+import {ContactService} from './contact.service';
 
 @NgModule({
 	providers: [
 		ContactConfig,
-		ContactApiService
+		ContactApiService,
+		ContactService
 	],
 	declarations: [
 		ContactIndexComponent,

@@ -1,0 +1,14 @@
+<div data-ng-repeat="alert in $ctrl.alerts" class="container">
+	<div class="alert alert-dismissable fade show mb-0"
+		 data-ng-class="::{'INFO': 'alert-info', 'SUCCESS': 'alert-success', 'WARNING': 'alert-warning', 'ERROR': 'alert-danger'}[alert.type]"
+		 role="alert">
+		<button type="button"
+				class="close"
+				data-dismiss="alert"
+				aria-label="Close"
+				data-ng-click="$ctrl.close(alert)">
+			<span aria-hidden="true">&times;</span>
+		</button>
+		<span>{{::alert.message}}</span>
+	</div>
+</div>

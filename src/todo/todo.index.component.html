@@ -1,0 +1,18 @@
+<h1>Todos</h1>
+
+<gsc-todo-searchcard [gs-searchcriteria]="$ctrl.searchcriteria"
+					 (gs-search-fn)="$ctrl.$search($event)"></gsc-todo-searchcard>
+
+<div class="text-right mt-3 mb-3">
+	<a data-ng-href="{{::$root.Uribuilder.getUri('todo', 'create')}}"
+	   title="Create New Todo"
+	   role="button"
+	   class="btn btn-light">
+		<i class="fa fa-file-o"></i> New
+	</a>
+</div>
+
+<gsc-todo-list data-ng-if="$ctrl.todos"
+			   [gs-todos]="$ctrl.todos"
+			   (gs-delete-fn)="$ctrl.$delete($event)"
+			   (gs-toggle-state-fn)="$ctrl.toggleState($event)"></gsc-todo-list>

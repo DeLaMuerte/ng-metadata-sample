@@ -1,7 +1,7 @@
 import {Inject, Injectable} from 'ng-metadata/core';
 import {Uribuilder} from '../_vanilla/Uribuilder';
 
-@Injectable('LoginApiService')
+@Injectable('loginApiService')
 export class LoginApiService implements gs.IApiService {
 
 	constructor(

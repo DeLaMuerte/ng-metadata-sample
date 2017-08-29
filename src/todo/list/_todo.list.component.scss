@@ -1,0 +1,9 @@
+gsc-todo-list {
+	tr.gsc-todo-done > td {
+		text-decoration: line-through;
+
+		&:last-child {
+			text-decoration: none;
+		}
+	}
+}

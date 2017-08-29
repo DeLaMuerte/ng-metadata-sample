@@ -10,7 +10,7 @@ export class AppComponent implements OnInit {
 
 	public constructor(
 		@Inject('$rootScope') private $rootScope: gs.IRootScopeService,
-		@Inject('LoginApiService') private loginApiService: LoginApiService) {
+		private loginApiService: LoginApiService) {
 			this.$rootScope.Uribuilder = Uribuilder.Instance;
 		}
 
