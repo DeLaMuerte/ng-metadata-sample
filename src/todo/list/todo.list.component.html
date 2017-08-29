@@ -2,39 +2,45 @@
 	<thead>
 	<tr>
 		<th>#</th>
+		<td></td>
 		<th>Title</th>
 		<th>Description</th>
-		<th>State</th>
 		<th class="text-right"></th>
 	</tr>
 	</thead>
 	<tbody>
-	<tr data-immutable="$ctrl.todos" data-ng-repeat="todo in $ctrl.todos">
-		<th scope="row">
+	<tr data-immutable="$ctrl.todos" data-ng-repeat="todo in $ctrl.todos" data-ng-class="::{'gsc-todo-done': todo.state == 'DONE'}">
+		<td scope="row">
 			{{::$index}}
-		</th>
+		</td>
+		<td>
+			<a href=""
+			   data-ng-click="$ctrl.toggleStateFn.emit(todo)"
+			   title="Toggle State"
+			   class="text-dark">
+				<i class="fa" data-ng-class="::{'OPEN': 'fa-square-o', 'DONE': 'fa-check-square-o'}[todo.state]"></i>
+			</a>
+		</td>
 		<td>
 			<a data-ng-href="{{::$root.Uribuilder.getUri('todo', 'edit', todo._id)}}"
-			   title="Edit Todo">
+			   title="Edit Todo"
+			   class="text-dark">
 				{{::todo.title}}
 			</a>
 		</td>
 		<td>
 			{{::todo.description}}
 		</td>
-		<td>
-			{{::todo.state}}
-		</td>
 		<td class="text-right">
 			<a data-ng-href="{{::$root.Uribuilder.getUri('todo', 'edit', todo._id)}}"
 			   title="Edit Todo"
-			   class="badge badge-light">
+			   class="badge badge-dark">
 				<i class="fa fa-pencil"></i>
 			</a> |
 			<a href=""
 			   data-ng-click="$ctrl.deleteFn.emit(todo)"
 			   title="Delete Todo"
-			   class="badge badge-light">
+			   class="badge badge-dark">
 				<i class="fa fa-trash"></i>
 			</a>
 		</td>

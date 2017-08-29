@@ -5,6 +5,7 @@ import {Page} from '../_models/Page';
 import {Todo} from './_models/Todo';
 import {TodoSearchcriteria} from './_models/TodoSearchcriteria';
 import {GsLocalstorage} from '../_vanilla/localstorage';
+import moment = require('moment');
 
 @Component({
 	selector: 'gsc-todo',
@@ -41,6 +42,36 @@ export class TodoIndexComponent implements OnInit {
 				this.todos = this.todos
 					.delete(this.todos
 						.findIndex((todo) => todo._id == couchDbOperationResponse.id));
+			})
+	}
+
+	public toggleState($event: Todo): void {
+		this.todoService
+			.$read($event._id)
+			.subscribe((todo: Todo) => {
+
+				switch ($event.state) {
+					case 'OPEN':
+						todo = <Todo>todo
+							.set('state', 'DONE')
+							.set('doneAt', moment().milliseconds(0).toDate());
+						break;
+					case 'DONE':
+						todo = <Todo>todo
+							.set('state', 'OPEN')
+							.set('openedAt', moment().milliseconds(0).toDate());
+						break;
+				}
+
+				this.todoService
+					.$update(todo)
+					.subscribe((updatedTodo: Todo) => {
+						let idx = this.todos.findIndex((t) => t._id == updatedTodo._id);
+						if (idx != -1) {
+							this.todos = this.todos
+								.set(idx, updatedTodo);
+						}
+					})
 			})
 	}
 

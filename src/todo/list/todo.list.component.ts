@@ -14,4 +14,7 @@ export class TodoListComponent {
 	@Output('gsDeleteFn')
 	public deleteFn: EventEmitter<Todo> = new EventEmitter<Todo>();
 
+	@Output('gsToggleStateFn')
+	public toggleStateFn: EventEmitter<Todo> = new EventEmitter<Todo>();
+
 }
