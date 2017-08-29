@@ -16,7 +16,11 @@
     "angularjs",
     "bootstrap",
     "bootstrap 4",
+    "immutable",
+    "immutablejs",
+    "immutable.js",
     "ng-metadata",
+    "rxjs",
     "typescript",
     "webpack"
   ],
