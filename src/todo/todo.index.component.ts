@@ -1,5 +1,5 @@
 import {List} from 'immutable';
-import {Component, OnInit} from 'ng-metadata/core';
+import {Component, Inject, OnInit} from 'ng-metadata/core';
 import {TodoService} from './todo.service';
 import {Page} from '../_models/Page';
 import {Todo} from './_models/Todo';
@@ -18,6 +18,7 @@ export class TodoIndexComponent implements OnInit {
 	public searchcriteria: TodoSearchcriteria = new TodoSearchcriteria(GsLocalstorage.Instance.getStorage('GscTodo_Searchcriteria'));
 
 	constructor(
+		@Inject('$window') private $window: ng.IWindowService,
 		private todoService: TodoService
 	) {}
 
@@ -36,13 +37,15 @@ export class TodoIndexComponent implements OnInit {
 	}
 
 	public $delete($event: Todo): void {
-		this.todoService
-			.$delete($event)
-			.subscribe((couchDbOperationResponse: gs.ICouchDbOperationResponse) => {
-				this.todos = this.todos
-					.delete(this.todos
-						.findIndex((todo) => todo._id == couchDbOperationResponse.id));
-			})
+		if (this.$window.confirm('Delete todo?')) {
+			this.todoService
+				.$delete($event)
+				.subscribe((couchDbOperationResponse: gs.ICouchDbOperationResponse) => {
+					this.todos = this.todos
+						.delete(this.todos
+							.findIndex((todo) => todo._id == couchDbOperationResponse.id));
+				})
+		}
 	}
 
 	public toggleState($event: Todo): void {
