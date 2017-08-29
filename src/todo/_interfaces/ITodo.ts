@@ -4,10 +4,10 @@ namespace gs {
 			title?: string,
 			description?: string,
 			state?: gs.todo.TodoState,
-			createdAt?: gs.IDatetimeISOString,
-			modifiedAt?: gs.IDatetimeISOString,
-			openedAt?: gs.IDatetimeISOString,
-			doneAt?: gs.IDatetimeISOString
+			createdAt?: Date,
+			modifiedAt?: Date,
+			openedAt?: Date,
+			doneAt?: Date
 		}
 	}
 }

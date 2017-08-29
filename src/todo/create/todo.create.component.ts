@@ -1,4 +1,5 @@
 import {Component, Inject, OnInit} from 'ng-metadata/core';
+import moment = require('moment');
 import {Todo} from '../_models/Todo';
 import {TodoService} from '../todo.service';
 import {Uribuilder} from '../../_vanilla/Uribuilder';
@@ -9,6 +10,7 @@ import {Uribuilder} from '../../_vanilla/Uribuilder';
 })
 export class TodoCreateComponent implements OnInit {
 
+	public todo: Todo;
 	public todoJs: gs.todo.ITodo;
 
 	constructor(
@@ -18,7 +20,10 @@ export class TodoCreateComponent implements OnInit {
 	) {}
 
 	public ngOnInit(): void {
-		this.todoJs = new Todo().toJS();
+		this.todo = <Todo>new Todo()
+			.set('state', 'OPEN')
+			.set('openedAt', moment().milliseconds(0).toDate());
+		this.todoJs = this.todo.toJS();
 	}
 
 	public $create(): void {

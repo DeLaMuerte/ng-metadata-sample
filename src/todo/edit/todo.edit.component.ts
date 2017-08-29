@@ -8,6 +8,7 @@ import {TodoService} from '../todo.service';
 })
 export class TodoEditComponent implements OnInit {
 
+	public todo: Todo;
 	public todoJs: gs.todo.ITodo;
 
 	constructor(
@@ -23,7 +24,8 @@ export class TodoEditComponent implements OnInit {
 		this.todoService
 			.$read(id)
 			.subscribe((todo: Todo) => {
-				this.todoJs = todo.toJS();
+				this.todo = todo;
+				this.todoJs = this.todo.toJS();
 			});
 	}
 
@@ -31,7 +33,8 @@ export class TodoEditComponent implements OnInit {
 		this.todoService
 			.$update(new Todo(this.todoJs))
 			.subscribe((updatedTodo: Todo) => {
-				this.todoJs = updatedTodo.toJS();
+				this.todo = updatedTodo;
+				this.todoJs = this.todo.toJS();
 			});
 	}
 

@@ -1,5 +1,6 @@
 import * as Rx from 'rxjs';
 import {Inject, Injectable} from 'ng-metadata/core';
+import * as moment from 'moment';
 import {Todo} from './_models/Todo';
 import {Page} from '../_models/Page';
 import {TodoApiService} from './todo.api.service';
@@ -26,7 +27,7 @@ export class TodoService {
 
 	public $create(todo: Todo): Rx.Observable<Todo> {
 		return Rx.Observable
-			.fromPromise(this.todoApiService.$create(todo))
+			.fromPromise(this.todoApiService.$create(<Todo>todo.set('createdAt', moment().toDate())))
 			.flatMap((response: ng.IHttpPromiseCallbackArg<gs.ICouchDbOperationResponse>) => {
 				return this.$read(response.data.id);
 			}).do(() => {
@@ -48,7 +49,7 @@ export class TodoService {
 
 	public $update(todo: Todo): Rx.Observable<Todo> {
 		return Rx.Observable
-			.fromPromise(this.todoApiService.$update(todo))
+			.fromPromise(this.todoApiService.$update(<Todo>todo.set('modifiedAt', moment().toDate())))
 			.flatMap((response: ng.IHttpPromiseCallbackArg<gs.ICouchDbOperationResponse>) => {
 				return this.$read(response.data.id)
 			}).do(() => {
