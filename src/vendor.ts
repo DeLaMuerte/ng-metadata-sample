@@ -1,11 +1,14 @@
-// import 'jquery';
+import 'jquery';
 
-// import 'bootstrap';
-
-// import 'rxjs';
+import 'bootstrap/js/src/alert';
 
 import 'angular';
 import 'angular-route';
-// import 'ng-metadata/core';
+
+import 'angular-immutable';
 
 import 'reflect-metadata';
+
+import 'rxjs';
+
+import 'moment';

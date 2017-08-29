@@ -1,0 +1,66 @@
+<form name="$ctrl.FormCtrl">
+	<div class="row">
+
+		<div class="col">
+
+			<div class="form-group">
+				<label for="$ctrl.todoJs.title">Title:</label>
+				<input type="text"
+					   data-ng-model="$ctrl.todoJs.title"
+					   class="form-control"
+					   id="$ctrl.todoJs.title"
+					   title="Title"
+					   placeholder="Title..." />
+			</div>
+
+			<div class="form-group">
+				<label for="$ctrl.todoJs.description">Description:</label>
+				<textarea data-ng-model="$ctrl.todoJs.description"
+						  rows="6"
+						  class="form-control"
+						  id="$ctrl.todoJs.description"
+						  title="Description"
+						  placeholder="Description...">
+				</textarea>
+			</div>
+		</div>
+
+		<div class="col">
+
+			<div class="form-group">
+				<label for="$ctrl.todoJs.state">State</label>
+				<select type="text"
+						data-ng-model="$ctrl.todoJs.state"
+						data-ng-change="$ctrl.onSelectState($ctrl.todoJs.state)"
+						class="form-control"
+						id="$ctrl.todoJs.state"
+						title="State"
+						required>
+					<option value="OPEN">Open</option>
+					<option value="DONE">Done</option>
+				</select>
+			</div>
+
+			<div class="form-group">
+				<label for="$ctrl.todoJs.openedAt">Opened At:</label>
+				<input type="datetime-local"
+					   data-ng-model="$ctrl.todoJs.openedAt"
+					   class="form-control"
+					   id="$ctrl.todoJs.openedAt"
+					   title="Opened At"
+					   placeholder="Opened At..." />
+			</div>
+
+			<div class="form-group">
+				<label for="$ctrl.todoJs.doneAt">Done At:</label>
+				<input type="datetime-local"
+					   data-ng-model="$ctrl.todoJs.doneAt"
+					   class="form-control"
+					   id="$ctrl.todoJs.doneAt"
+					   title="Done At"
+					   placeholder="Done At..." />
+			</div>
+
+		</div>
+	</div>
+</form>

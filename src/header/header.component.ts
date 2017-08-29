@@ -10,7 +10,7 @@ export class HeaderComponent {
 
 	public constructor(
 		@Inject('$location') private $location: ng.ILocationService,
-		@Inject('LoginApiService') private loginApiService: LoginApiService
+		private loginApiService: LoginApiService
 	) {}
 
 	public isActive(module: string): boolean {

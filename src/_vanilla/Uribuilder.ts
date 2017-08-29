@@ -14,9 +14,7 @@ export class Uribuilder implements gs.IUribuilder {
 
 	private restUris: Map<string, Map<string, string>> = new Map<string, Map<string, string>>();
 
-	private constructor() {
-
-	}
+	private constructor() {}
 
 	public static get Instance(): Uribuilder {
 		return this.instance || (this.instance = new this());

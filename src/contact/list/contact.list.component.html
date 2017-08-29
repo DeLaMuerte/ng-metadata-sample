@@ -1,4 +1,4 @@
-<table class="table">
+<table class="table table-hover">
 	<thead>
 	<tr>
 		<th>#</th>
@@ -7,7 +7,7 @@
 	</tr>
 	</thead>
 	<tbody>
-	<tr data-ng-repeat="contact in $ctrl.contacts">
+	<tr data-immutable="$ctrl.contacts" data-ng-repeat="contact in $ctrl.contacts">
 		<th scope="row">{{::$index}}</th>
 		<td>{{::contact.firstName}}</td>
 		<td>{{::contact.lastName}}</td>

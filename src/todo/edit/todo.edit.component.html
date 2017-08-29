@@ -1,0 +1,13 @@
+<h1 class="mb-0">Edit Todo <i>{{$ctrl.todo.title}}</i></h1>
+<p class="blockquote-footer">Created At: {{$ctrl.todo.createdAt | date : 'dd.MM.yyyy HH:mm:ss'}}<span data-ng-if="$ctrl.todo.modifiedAt"> | Modified At: {{$ctrl.todo.modifiedAt | date : 'dd.MM.yyyy HH:mm:ss'}}</span></p>
+
+<gsc-todo-form [(gs-todo-js)]="$ctrl.todoJs"></gsc-todo-form>
+
+<div class="text-right">
+	<button type="submit"
+			data-ng-click="$ctrl.$update()"
+			title="Create Todo"
+			class="btn btn-success">
+		<i class="fa fa-save"></i> Save
+	</button>
+</div>
