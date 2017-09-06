@@ -11,6 +11,10 @@ export class HeaderUsermenuComponent {
 		private loginService: LoginService
 	) {}
 
+	public userHasRole(role: string): boolean {
+		return this.loginService.userCtxSubject.getValue().roles.indexOf(role) != -1;
+	}
+
 	public logout(): void {
 		this.loginService.logout();
 	}

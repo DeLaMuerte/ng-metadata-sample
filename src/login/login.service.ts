@@ -7,18 +7,18 @@ import {UserCtx} from './_models/UserCtx';
 @Injectable('loginService')
 export class LoginService {
 
-	public userCtxSubject: Rx.Subject<UserCtx>;
+	public userCtxSubject: Rx.BehaviorSubject<UserCtx>;
 	public userCtxObservable: Rx.Observable<UserCtx>;
 
 	public constructor(
 		private commonAlertService: CommonAlertService,
 		private loginApiService: LoginApiService
 	) {
-		this.userCtxSubject = new Rx.Subject<UserCtx>();
+		this.userCtxSubject = new Rx.BehaviorSubject<UserCtx>(null);
 		this.userCtxObservable = this.userCtxSubject.asObservable().share();
 	}
 
-	public login(credentials: {name: string, password: string}) {
+	public login(credentials: {name: string, password: string}): Rx.Subscription {
 		return Rx.Observable
 			.fromPromise(this.loginApiService.$create(credentials))
 			.map((response: ng.IHttpResponse<gs.login.IUserCtx>) => {
@@ -29,11 +29,11 @@ export class LoginService {
 				this.userCtxSubject.next(userCtx);
 			}, (reason: ng.IHttpResponse<any>) => {
 				this.commonAlertService.error('Login unsuccessful', reason.data);
-				this.userCtxSubject.next();
+				this.userCtxSubject.next(null);
 			})
 	}
 
-	public logout() {
+	public logout(): Rx.Subscription {
 		return Rx.Observable
 			.fromPromise(this.loginApiService.$delete())
 			.map((response: ng.IHttpResponse<any>) => {
@@ -41,14 +41,13 @@ export class LoginService {
 			})
 			.subscribe(() => {
 				this.commonAlertService.success('Logged out');
-				this.userCtxSubject.next();
+				this.userCtxSubject.next(null);
 			}, (reason: ng.IHttpResponse<any>) => {
 				this.commonAlertService.error('Logout unsuccessful', reason.data);
 			})
 	}
 
-	public check() {
-		console.debug('check()');
+	public check(): Rx.Subscription {
 		return Rx.Observable
 			.fromPromise(this.loginApiService.$read())
 			.map((response: ng.IHttpResponse<gs.login.ISession>) => {
@@ -58,10 +57,10 @@ export class LoginService {
 				if (!!data.info.authenticated) {
 					this.userCtxSubject.next(new UserCtx(data.userCtx));
 				} else {
-					this.userCtxSubject.next();
+					this.userCtxSubject.next(null);
 				}
 			}, (reason: ng.IHttpResponse<any>) => {
-				this.userCtxSubject.next();
+				this.userCtxSubject.next(null);
 			})
 	}
 
