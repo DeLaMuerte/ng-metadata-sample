@@ -34,9 +34,9 @@ export class ContactService {
 
 		return Rx.Observable
 			.fromPromise(this.contactApiService.$search(_searchcriteria))
-			.map((response: ng.IHttpPromiseCallbackArg<any>): Page<Contact> => {
+			.map((response: ng.IHttpResponse<any>): Page<Contact> => {
 				return new Page<Contact>(response.data, Contact);
-			}).do(null, (reason: ng.IHttpPromiseCallbackArg<any>) => {
+			}).do(null, (reason: ng.IHttpResponse<any>) => {
 				this.commonAlertService.error('An error has occurred while performing search for contacts', reason.data);
 			});
 	}

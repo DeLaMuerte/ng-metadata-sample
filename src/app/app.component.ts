@@ -1,6 +1,7 @@
 import {Component, Inject, OnInit} from 'ng-metadata/core';
 import {Uribuilder} from '../_vanilla/Uribuilder';
-import {LoginApiService} from '../login/login.api.service';
+import {LoginService} from '../login/login.service';
+import {UserCtx} from '../login/_models/UserCtx';
 
 @Component({
 	selector: 'gsc-app',
@@ -8,18 +9,29 @@ import {LoginApiService} from '../login/login.api.service';
 })
 export class AppComponent implements OnInit {
 
+	public isAuthenticated: boolean;
+
 	public constructor(
 		@Inject('$rootScope') private $rootScope: gs.IRootScopeService,
-		private loginApiService: LoginApiService) {
-			this.$rootScope.Uribuilder = Uribuilder.Instance;
-		}
+		private loginService: LoginService
+	) {
+		this.$rootScope.Uribuilder = Uribuilder.Instance;
+	}
 
 	public ngOnInit(): void {
+		this.subscribeToUserCtx();
 		this.checkForAuthentication();
 	}
 
+	private subscribeToUserCtx() {
+		this.loginService.userCtxObservable
+			.subscribe((userCtx?: UserCtx) => {
+				this.isAuthenticated = !!userCtx;
+			});
+	}
+
 	private checkForAuthentication() {
-		this.loginApiService.$read();
+		this.loginService.check();
 	}
 
 }

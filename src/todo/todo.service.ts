@@ -35,9 +35,9 @@ export class TodoService {
 
 		return Rx.Observable
 			.fromPromise(this.todoApiService.$search(_searchcriteria))
-			.map((response: ng.IHttpPromiseCallbackArg<any>): Page<Todo> => {
+			.map((response: ng.IHttpResponse<any>): Page<Todo> => {
 				return new Page<Todo>(response.data, Todo);
-			}).do(null, (reason: ng.IHttpPromiseCallbackArg<any>) => {
+			}).do(null, (reason: ng.IHttpResponse<any>) => {
 				this.commonAlertService.error('An error has occurred while performing search for todos', reason.data);
 			});
 	}
@@ -45,11 +45,11 @@ export class TodoService {
 	public $create(todo: Todo): Rx.Observable<Todo> {
 		return Rx.Observable
 			.fromPromise(this.todoApiService.$create(<Todo>todo.set('createdAt', moment().toDate())))
-			.flatMap((response: ng.IHttpPromiseCallbackArg<gs.ICouchDbOperationResponse>) => {
+			.flatMap((response: ng.IHttpResponse<gs.ICouchDbOperationResponse>) => {
 				return this.$read(response.data.id);
 			}).do(() => {
 				this.commonAlertService.success('Todo created')
-			}, (reason: ng.IHttpPromiseCallbackArg<any>) => {
+			}, (reason: ng.IHttpResponse<any>) => {
 				this.commonAlertService.error('The todo could not been created', reason.data)
 			});
 	}
@@ -57,9 +57,9 @@ export class TodoService {
 	public $read(id: string): Rx.Observable<Todo> {
 		return Rx.Observable
 			.fromPromise(this.todoApiService.$read(id))
-			.map((response: ng.IHttpPromiseCallbackArg<gs.todo.ITodo>): Todo => {
+			.map((response: ng.IHttpResponse<gs.todo.ITodo>): Todo => {
 				return new Todo(response.data);
-			}).do(null, (reason: ng.IHttpPromiseCallbackArg<any>) => {
+			}).do(null, (reason: ng.IHttpResponse<any>) => {
 				this.commonAlertService.error('The todo could not been read', reason.data)
 			});
 	}
@@ -67,11 +67,11 @@ export class TodoService {
 	public $update(todo: Todo): Rx.Observable<Todo> {
 		return Rx.Observable
 			.fromPromise(this.todoApiService.$update(<Todo>todo.set('modifiedAt', moment().toDate())))
-			.flatMap((response: ng.IHttpPromiseCallbackArg<gs.ICouchDbOperationResponse>) => {
+			.flatMap((response: ng.IHttpResponse<gs.ICouchDbOperationResponse>) => {
 				return this.$read(response.data.id)
 			}).do(() => {
 				this.commonAlertService.success('Todo saved')
-			}, (reason: ng.IHttpPromiseCallbackArg<any>) => {
+			}, (reason: ng.IHttpResponse<any>) => {
 				this.commonAlertService.error('The todo could not been saved', reason.data)
 			});
 	}
@@ -79,11 +79,11 @@ export class TodoService {
 	public $delete(todo: Todo): Rx.Observable<gs.ICouchDbOperationResponse> {
 		return Rx.Observable
 			.fromPromise(this.todoApiService.$delete(todo))
-			.map((response: ng.IHttpPromiseCallbackArg<gs.ICouchDbOperationResponse>) => {
+			.map((response: ng.IHttpResponse<gs.ICouchDbOperationResponse>) => {
 				return response.data;
 			}).do(() => {
 				this.commonAlertService.success('Todo deleted')
-			}, (reason: ng.IHttpPromiseCallbackArg<any>) => {
+			}, (reason: ng.IHttpResponse<any>) => {
 				this.commonAlertService.error('The todo could not been deleted', reason.data)
 			});
 	}

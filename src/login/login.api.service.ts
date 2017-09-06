@@ -19,12 +19,6 @@ export class LoginApiService implements gs.IApiService {
 			},
 			data: credentials,
 			withCredentials: true
-		}).then((response) => {
-			this.$rootScope.userIsLoggedIn = true;
-			return response;
-		}, (reason) => {
-			this.$rootScope.userIsLoggedIn = false;
-			return reason;
 		})
 	}
 
@@ -36,13 +30,7 @@ export class LoginApiService implements gs.IApiService {
 				'Accept': 'application/json'
 			},
 			withCredentials: true
-		}).then((response: ng.IHttpPromiseCallbackArg<any>) => {
-			this.$rootScope.userIsLoggedIn = !!response.data.userCtx.name;
-			return response;
-		}, ((reason) => {
-			this.$rootScope.userIsLoggedIn = false;
-			return reason;
-		}));
+		});
 	}
 
 	public $delete(): ng.IHttpPromise<any> {
@@ -50,9 +38,6 @@ export class LoginApiService implements gs.IApiService {
 			method: 'DELETE',
 			url: Uribuilder.Instance.getRestUri('login', 'delete'),
 			withCredentials: true
-		}).then((response) => {
-			this.$rootScope.userIsLoggedIn = false;
-			return response;
 		})
 	}
 

@@ -1,6 +1,6 @@
 import {Component, Inject} from 'ng-metadata/core';
 import {Uribuilder} from '../_vanilla/Uribuilder';
-import {LoginApiService} from '../login/login.api.service';
+import {LoginService} from '../login/login.service';
 
 @Component({
 	selector: 'gsc-header',
@@ -10,7 +10,7 @@ export class HeaderComponent {
 
 	public constructor(
 		@Inject('$location') private $location: ng.ILocationService,
-		private loginApiService: LoginApiService
+		private loginService: LoginService
 	) {}
 
 	public isActive(module: string): boolean {
@@ -18,7 +18,7 @@ export class HeaderComponent {
 	}
 
 	public logout(): void {
-		this.loginApiService.$delete();
+		this.loginService.logout();
 	}
 
 }

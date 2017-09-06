@@ -1,5 +1,5 @@
 import {Component} from 'ng-metadata/core';
-import {LoginApiService} from './login.api.service';
+import {LoginService} from './login.service';
 
 @Component({
 	selector: 'gsc-login',
@@ -8,7 +8,7 @@ import {LoginApiService} from './login.api.service';
 export class LoginIndexComponent {
 
 	constructor(
-		private loginApiService: LoginApiService
+		private loginService: LoginService
 	) {}
 
 	public credentials: {name: string, password: string} = {
@@ -17,6 +17,6 @@ export class LoginIndexComponent {
 	};
 
 	public login() {
-		this.loginApiService.$create(this.credentials);
+		this.loginService.login(this.credentials);
 	}
 }
