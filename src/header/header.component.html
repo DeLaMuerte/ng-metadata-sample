@@ -1,23 +1,41 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 	<ul class="navbar-nav mr-auto">
 		<li class="nav-item" data-ng-class="{'active': $ctrl.isActive('home')}">
-			<a class="nav-link" data-ng-href="{{::$root.Uribuilder.getUri('home', 'index')}}">Home</a>
+			<a class="nav-link" data-ng-href="{{::$root.Uribuilder.getUri('home', 'index')}}"> Home</a>
 		</li>
 		<li class="nav-item" data-ng-class="{'active': $ctrl.isActive('todo')}">
-			<a class="nav-link" data-ng-href="{{::$root.Uribuilder.getUri('todo', 'index')}}">Todos</a>
+			<a class="nav-link" data-ng-href="{{::$root.Uribuilder.getUri('todo', 'index')}}"> Todos</a>
 		</li>
 		<li class="nav-item" data-ng-class="{'active': $ctrl.isActive('contact')}">
 			<a class="nav-link" data-ng-href="{{::$root.Uribuilder.getUri('contact', 'index')}}">Contacts</a>
 		</li>
 	</ul>
 	<ul class="navbar-nav">
-		<li class="nav-item">
-			<a href=""
-			   data-ng-click="$ctrl.logout()"
-			   title="Logout"
-			   class="nav-link">
-				<i class="fa fa-sign-out"></i>
+		<li class="nav-item dropdown">
+			<a class="nav-link dropdown-toggle"
+			   data-toggle="dropdown"
+			   href=""
+			   role="button"
+			   aria-haspopup="true"
+			   aria-expanded="false">
+				<i class="fa fa-cog"></i>
 			</a>
+			<div class="dropdown-menu">
+				<a class="dropdown-item" href="">
+					<i class="fa fa-sliders"></i> Einstellungen
+				</a>
+				<div class="dropdown-divider"></div>
+				<a class="dropdown-item" href="">
+					<i class="fa fa-wrench"></i> Admin
+				</a>
+				<div class="dropdown-divider"></div>
+				<a href=""
+				   data-ng-click="$ctrl.logout()"
+				   title="Logout"
+				   class="dropdown-item">
+					<i class="fa fa-sign-out"></i> Logout
+				</a>
+			</div>
 		</li>
 	</ul>
 </nav>

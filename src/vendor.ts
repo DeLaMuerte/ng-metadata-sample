@@ -1,7 +1,5 @@
 import 'jquery';
 
-import 'bootstrap/js/src/alert';
-
 import 'angular';
 import 'angular-route';
 
@@ -12,3 +10,9 @@ import 'reflect-metadata';
 import 'rxjs';
 
 import 'moment';
+
+import 'bootstrap/js/dist/alert';
+
+import 'popper.js';
+import 'bootstrap/js/dist/util';
+import 'bootstrap/js/dist/dropdown';
