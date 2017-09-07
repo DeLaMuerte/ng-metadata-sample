@@ -11,13 +11,13 @@ export function AdminConfig($routeProvider: ng.route.IRouteProvider) {'ngInject'
 	$routeProvider
 		.when(Uribuilder.Instance.getPath('admin', 'index'), {
 			template: '<gsc-admin></gsc-admin>',
-			resolve: {
-				permitted: ($location: ng.ILocationService, commonAlertService: CommonAlertService, loginService: LoginService) => {'ngInject';
-					if (!loginService.userCtxSubject.getValue() || loginService.userCtxSubject.getValue().roles.indexOf('_admin') == -1) {
-						commonAlertService.error('Not permitted');
-						$location.path(Uribuilder.Instance.getPath('home', 'index'));
-					}
-				}
-			}
+			// resolve: {
+			// 	permitted: ($location: ng.ILocationService, commonAlertService: CommonAlertService, loginService: LoginService) => {'ngInject';
+			// 		if (!loginService.userCtxSubject.getValue() || loginService.userCtxSubject.getValue().roles.indexOf('_admin') == -1) {
+			// 			commonAlertService.error('Not permitted');
+			// 			$location.path(Uribuilder.Instance.getPath('home', 'index'));
+			// 		}
+			// 	}
+			// }
 		});
 }
