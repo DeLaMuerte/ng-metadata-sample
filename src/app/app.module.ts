@@ -1,4 +1,6 @@
+import * as angularImmutable from 'angular-immutable';
 import * as ngRoute from 'angular-route';
+import * as uiBootstrapModuleTabs from 'angular1-ui-bootstrap4/src/tabs';
 
 import {bundle, NgModule} from 'ng-metadata/core';
 
@@ -37,4 +39,4 @@ import {CommonModule} from '../common/common.module';
 })
 class AppModule {}
 
-export const AppNg1Module: string = bundle(AppModule, ['immutable', 'ui.bootstrap.module.tabs']).name;
+export const AppNg1Module: string = bundle(AppModule, [angularImmutable, uiBootstrapModuleTabs]).name;
