@@ -1,6 +1,5 @@
 import * as angularUiRouter from '@uirouter/angularjs';
 import * as angularImmutable from 'angular-immutable';
-import * as uiBootstrapModuleTabs from 'angular1-ui-bootstrap4/src/tabs';
 
 import {bundle, NgModule} from 'ng-metadata/core';
 
@@ -40,4 +39,4 @@ import {App404Component} from './404/app.404.component';
 })
 class AppModule {}
 
-export const AppNg1Module: string = bundle(AppModule, [angularUiRouter.default, angularImmutable, uiBootstrapModuleTabs]).name;
+export const AppNg1Module: string = bundle(AppModule, [angularUiRouter.default, angularImmutable]).name;

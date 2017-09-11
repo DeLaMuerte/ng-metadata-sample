@@ -8,8 +8,8 @@ import {CommonAlertService} from './alert/common.alert.service';
 		CommonAlertService
 	],
 	declarations: [
-		CommonDebugComponent,
-		CommonAlertsComponent
+		CommonAlertsComponent,
+		CommonDebugComponent
 	]
 })
 export class CommonModule {}
