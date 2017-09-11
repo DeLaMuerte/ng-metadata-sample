@@ -1,6 +1,6 @@
 import {NgModule} from 'ng-metadata/core';
 import {CommonDebugComponent} from './debug/common.debug.component';
-import {CommonAlertComponent} from './alert/common.alert.component';
+import {CommonAlertsComponent} from './alerts/common.alerts.component';
 import {CommonAlertService} from './alert/common.alert.service';
 
 @NgModule({
@@ -9,7 +9,7 @@ import {CommonAlertService} from './alert/common.alert.service';
 	],
 	declarations: [
 		CommonDebugComponent,
-		CommonAlertComponent
+		CommonAlertsComponent
 	]
 })
 export class CommonModule {}

@@ -1,8 +1,10 @@
+import * as angularUiRouter from '@uirouter/angularjs';
 import * as angularImmutable from 'angular-immutable';
-import * as ngRoute from 'angular-route';
 import * as uiBootstrapModuleTabs from 'angular1-ui-bootstrap4/src/tabs';
 
 import {bundle, NgModule} from 'ng-metadata/core';
+
+import {CommonModule} from '../common/common.module';
 
 import {AdminModule} from '../admin/admin.module';
 import {ContactModule} from '../contact/contact.module';
@@ -15,11 +17,9 @@ import {TodoModule} from '../todo/todo.module';
 
 import {AppConfig} from './app.config';
 import {AppComponent} from './app.component';
-import {CommonModule} from '../common/common.module';
+import {App404Component} from './404/app.404.component';
 @NgModule({
 	imports: [
-		ngRoute,
-
 		CommonModule,
 
 		AdminModule,
@@ -34,9 +34,10 @@ import {CommonModule} from '../common/common.module';
 		AppConfig
 	],
 	declarations: [
-		AppComponent
+		AppComponent,
+		App404Component
 	]
 })
 class AppModule {}
 
-export const AppNg1Module: string = bundle(AppModule, [angularImmutable, uiBootstrapModuleTabs]).name;
+export const AppNg1Module: string = bundle(AppModule, [angularUiRouter.default, angularImmutable, uiBootstrapModuleTabs]).name;

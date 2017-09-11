@@ -1,13 +1,13 @@
 import {NgModule} from 'ng-metadata/core';
 import {SettingsConfig} from './settings.config';
-import {SettingsIndexComponent} from './settings.index.component';
+import {SettingsComponent} from './settings.component';
 
 @NgModule({
 	providers: [
 		SettingsConfig
 	],
 	declarations: [
-		SettingsIndexComponent
+		SettingsComponent
 	]
 })
 export class SettingsModule {}

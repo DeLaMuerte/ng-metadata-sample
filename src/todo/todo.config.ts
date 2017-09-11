@@ -1,13 +1,7 @@
 import {Uribuilder} from '../_vanilla/Uribuilder';
 import {GsLocalstorage} from '../_vanilla/localstorage';
 
-export function TodoConfig($routeProvider: ng.route.IRouteProvider) {'ngInject';
-
-	Uribuilder.Instance.setPaths('todo', new Map<string, string>([
-		['index',	'/todo'],
-		['create',	'/todo/create'],
-		['edit',	'/todo/%s']
-	]));
+export function TodoConfig($stateProvider: ng.ui.IStateProvider) {'ngInject';
 
 	Uribuilder.Instance.setRestUris('todo', new Map<string, string>([
 		['list',	'/todos/_all_docs'],
@@ -20,15 +14,26 @@ export function TodoConfig($routeProvider: ng.route.IRouteProvider) {'ngInject';
 
 	GsLocalstorage.Instance.setVersionedKey('GscTodo_Searchcriteria', 'GscTodo_Searchcriteria_1');
 
-	$routeProvider.when(Uribuilder.Instance.getPath('todo', 'index'), {
-		template: '<gsc-todo></gsc-todo>'
-	});
-
-	$routeProvider.when(Uribuilder.Instance.getPath('todo', 'create'), {
-		template: '<gsc-todo-create></gsc-todo-create>'
-	});
-
-	$routeProvider.when(Uribuilder.Instance.getPath('todo', 'edit', ':id'), {
-		template: '<gsc-todo-edit></gsc-todo-edit>'
-	});
+	$stateProvider
+		.state({
+			name: 'todo',
+			url: '/todo',
+			component: 'gscTodo',
+			redirectTo: 'todo.index'
+		})
+		.state({
+			name: 'todo.index',
+			url: '/index',
+			component: 'gscTodoIndex'
+		})
+		.state({
+			name: 'todo.create',
+			url: '/create',
+			component: 'gscTodoCreate'
+		})
+		.state({
+			name: 'todo.edit',
+			url: '/{id}',
+			component: 'gscTodoEdit'
+		});
 }

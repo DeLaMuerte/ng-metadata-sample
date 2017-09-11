@@ -1,7 +1,8 @@
-import {Uribuilder} from '../_vanilla/Uribuilder';
-
-export function HomeConfig($routeProvider: ng.route.IRouteProvider) {'ngInject';
-	$routeProvider.when(Uribuilder.Instance.getPath('home', 'index'), {
-		template: '<gsc-home></gsc-home>'
-	})
+export function HomeConfig($stateProvider: ng.ui.IStateProvider) {'ngInject';
+	$stateProvider
+		.state({
+			name: 'home',
+			url: '/',
+			component: 'gscHome'
+		})
 }

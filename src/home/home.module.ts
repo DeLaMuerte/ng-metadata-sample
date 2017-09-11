@@ -1,14 +1,14 @@
 import {NgModule} from 'ng-metadata/core';
 
 import {HomeConfig} from './home.config';
-import {HomeIndexComponent} from './home.index.component';
+import {HomeComponent} from './home.component';
 
 @NgModule({
 	providers: [
 		HomeConfig
 	],
 	declarations: [
-		HomeIndexComponent
+		HomeComponent
 	]
 })
 export class HomeModule {}

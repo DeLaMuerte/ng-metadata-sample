@@ -1,12 +1,6 @@
 import {Uribuilder} from '../_vanilla/Uribuilder';
 
-export function ContactConfig($routeProvider: ng.route.IRouteProvider) {'ngInject';
-
-	Uribuilder.Instance.setPaths('contact', new Map<string, string>([
-		['index',	'/contact'],
-		['create',	'/contact/create'],
-		['view',	'/contact/%s']
-	]));
+export function ContactConfig($stateProvider: ng.ui.IStateProvider) {'ngInject';
 
 	Uribuilder.Instance.setRestUris('contact', new Map<string, string>([
 		['list',	'/contacts/_all_docs'],
@@ -14,7 +8,16 @@ export function ContactConfig($routeProvider: ng.route.IRouteProvider) {'ngInjec
 		['read',	'/contacts/%s'],
 	]));
 
-	$routeProvider.when(Uribuilder.Instance.getPath('contact', 'index'), {
-		template: '<gsc-contact></gsc-contact>'
-	});
+	$stateProvider
+		.state({
+			name: 'contact',
+			url: '/contact',
+			component: 'gscContact',
+			redirectTo: 'contact.index'
+		})
+		.state({
+			name: 'contact.index',
+			url: '/index',
+			component: 'gscContactIndex'
+		});
 }

@@ -5,13 +5,4 @@ import {Uribuilder} from '../../_vanilla/Uribuilder';
 	selector: 'gsc-header-mainmenu',
 	template: require('./header.mainmenu.component.html')
 })
-export class HeaderMainmenuComponent {
-
-	public constructor(
-		@Inject('$location') private $location: ng.ILocationService
-	) {}
-
-	public isActive(module: string): boolean {
-		return module == Uribuilder.Instance.getModule(this.$location.path());
-	}
-}
+export class HeaderMainmenuComponent {}

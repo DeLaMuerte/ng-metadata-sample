@@ -1,12 +1,12 @@
 import {Component, Inject, OnInit} from 'ng-metadata/core';
-import {CommonAlertService} from './common.alert.service';
-import {Alert} from './_models/Alert';
+import {CommonAlertService} from '../alert/common.alert.service';
+import {Alert} from '../alert/_models/Alert';
 
 @Component({
 	selector: 'gsc-alerts',
-	template: require('./common.alert.component.html'),
+	template: require('./common.alerts.component.html'),
 })
-export class CommonAlertComponent implements OnInit {
+export class CommonAlertsComponent implements OnInit {
 	public alerts: Array<Alert> = [];
 
 	constructor(
@@ -25,7 +25,7 @@ export class CommonAlertComponent implements OnInit {
 			});
 	}
 
-	public close (alert: Alert): void {
+	public close(alert: Alert): void {
 		let idx = this.alerts.indexOf(alert);
 		if (idx != -1) {
 			this.$timeout(() => {

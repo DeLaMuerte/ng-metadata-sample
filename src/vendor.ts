@@ -1,8 +1,7 @@
 import 'jquery';
 
 import 'angular';
-import 'angular-route';
-
+import '@uirouter/angularjs';
 import 'angular-immutable';
 
 import 'reflect-metadata';

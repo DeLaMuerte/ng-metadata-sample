@@ -1,12 +1,10 @@
 import {Uribuilder} from '../_vanilla/Uribuilder';
 
-export function SettingsConfig($routeProvider: ng.route.IRouteProvider) {'ngInject';
+export function SettingsConfig($stateProvider: ng.ui.IStateProvider) {'ngInject';
 
-	Uribuilder.Instance.setPaths('settings', new Map<string, string>([
-		['index',	'/settings']
-	]));
-
-	$routeProvider.when(Uribuilder.Instance.getPath('settings', 'index'), {
-		template: '<gsc-settings></gsc-settings>'
+	$stateProvider.state({
+		name: 'settings',
+		url: '/settings',
+		component: 'gscSettings'
 	});
 }

@@ -3,7 +3,7 @@ import {LoginService} from './login.service';
 
 @Component({
 	selector: 'gsc-login',
-	template: require('./login.index.component.html')
+	template: require('./login.component.html')
 })
 export class LoginIndexComponent {
 

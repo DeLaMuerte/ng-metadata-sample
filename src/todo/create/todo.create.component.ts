@@ -2,7 +2,6 @@ import {Component, Inject, OnInit} from 'ng-metadata/core';
 import moment = require('moment');
 import {Todo} from '../_models/Todo';
 import {TodoService} from '../todo.service';
-import {Uribuilder} from '../../_vanilla/Uribuilder';
 
 @Component({
 	selector: 'gsc-todo-create',
@@ -14,8 +13,7 @@ export class TodoCreateComponent implements OnInit {
 	public todoJs: gs.todo.ITodo;
 
 	constructor(
-		@Inject('$routeParams') private $routeParams: ng.route.IRouteParamsService,
-		@Inject('$location') private $location: ng.ILocationService,
+		@Inject('$state') private $state: ng.ui.IStateService,
 		private todoService: TodoService
 	) {}
 
@@ -30,7 +28,7 @@ export class TodoCreateComponent implements OnInit {
 		this.todoService
 			.$create(new Todo(this.todoJs))
 			.subscribe((createdTodo: Todo) => {
-				this.$location.path(Uribuilder.Instance.getPath('todo', 'edit', createdTodo._id));
+				this.$state.go('todo.edit', {id: createdTodo._id});
 			});
 	}
 

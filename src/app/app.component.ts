@@ -12,11 +12,8 @@ export class AppComponent implements OnInit {
 	public isAuthenticated: boolean;
 
 	public constructor(
-		@Inject('$rootScope') private $rootScope: gs.IRootScopeService,
 		private loginService: LoginService
-	) {
-		this.$rootScope.Uribuilder = Uribuilder.Instance;
-	}
+	) {}
 
 	public ngOnInit(): void {
 		this.subscribeToUserCtx();

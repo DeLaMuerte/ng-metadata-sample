@@ -2,7 +2,8 @@ import {NgModule} from 'ng-metadata/core';
 
 import {ContactConfig} from './contact.config';
 import {ContactApiService} from './contact.api.service';
-import {ContactIndexComponent} from './contact.index.component';
+import {ContactComponent} from './contact.component';
+import {ContactIndexComponent} from './index/contact.index.component';
 import {ContactListComponent} from './list/contact.list.component';
 import {ContactSearchcardComponent} from './searchcard/contact.searchcard.component';
 import {ContactService} from './contact.service';
@@ -14,6 +15,7 @@ import {ContactService} from './contact.service';
 		ContactService
 	],
 	declarations: [
+		ContactComponent,
 		ContactIndexComponent,
 		ContactListComponent,
 		ContactSearchcardComponent

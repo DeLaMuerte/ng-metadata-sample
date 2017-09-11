@@ -1,12 +1,12 @@
 import {Component, Inject} from 'ng-metadata/core';
-import {ContactSearchcriteria} from './_models/ContactSearchcriteria';
-import {ContactService} from './contact.service';
-import {Contact} from './_models/Contact';
-import {Page} from '../_models/Page';
+import {ContactSearchcriteria} from '../_models/ContactSearchcriteria';
+import {ContactService} from '../contact.service';
+import {Contact} from '../_models/Contact';
+import {Page} from '../../_models/Page';
 import {List} from 'immutable';
 
 @Component({
-	selector: 'gsc-contact',
+	selector: 'gsc-contact-index',
 	template: require('./contact.index.component.html')
 })
 export class ContactIndexComponent {

@@ -1,6 +1,6 @@
 import {Uribuilder} from '../_vanilla/Uribuilder';
 
-export function LoginConfig($routeProvider: ng.route.IRouteProvider) {'ngInject';
+export function LoginConfig() {'ngInject';
 
 	Uribuilder.Instance.setRestUris('login', new Map<string, string>([
 		['read',	'/_session'],

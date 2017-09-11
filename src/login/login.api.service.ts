@@ -5,8 +5,7 @@ import {Uribuilder} from '../_vanilla/Uribuilder';
 export class LoginApiService implements gs.IApiService {
 
 	constructor(
-		@Inject("$http") private $http: ng.IHttpService,
-		@Inject('$rootScope') private $rootScope: gs.IRootScopeService
+		@Inject("$http") private $http: ng.IHttpService
 	) {}
 
 	public $create(credentials: {name: string, password: string}): ng.IHttpPromise<any> {

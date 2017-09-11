@@ -10,13 +10,13 @@
 		</a>
 		<div class="dropdown-menu dropdown-menu-right">
 			<a class="dropdown-item"
-			   data-ng-href="{{::$root.Uribuilder.getUri('settings', 'index')}}">
+			   data-ui-sref="settings">
 				<i class="fa fa-sliders"></i> Einstellungen
 			</a>
 			<div data-ng-if="$ctrl.userHasRole('_admin')">
 				<div class="dropdown-divider"></div>
 				<a class="dropdown-item"
-				   data-ng-href="{{::$root.Uribuilder.getUri('admin', 'index')}}">
+				   data-ui-sref="admin">
 					<i class="fa fa-wrench"></i> Admin
 				</a>
 			</div>

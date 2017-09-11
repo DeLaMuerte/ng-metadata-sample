@@ -1,8 +1,9 @@
 import {Uribuilder} from '../_vanilla/Uribuilder';
 
-export function AppConfig($routeProvider: ng.route.IRouteProvider) {'ngInject';
-	$routeProvider
-		.otherwise({
-			redirectTo: Uribuilder.Instance.getPath('home', 'index')
-		});
+export function AppConfig($stateProvider: ng.ui.IStateProvider) {'ngInject';
+	$stateProvider.state({
+		name: '404',
+		url: '*path',
+		component: 'gscApp404'
+	});
 }
