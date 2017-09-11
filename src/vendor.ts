@@ -17,6 +17,4 @@ import 'popper.js';
 import 'bootstrap/js/dist/util';
 import 'bootstrap/js/dist/dropdown';
 
-import 'bootstrap/js/dist/tab';
-
-import 'angular-ui-bootstrap';
+import 'angular1-ui-bootstrap4/src/tabs';
