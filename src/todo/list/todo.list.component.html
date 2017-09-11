@@ -1,19 +1,19 @@
 <table class="table table-sm table-responsive table-hover">
 	<thead>
 	<tr>
-		<th>#</th>
-		<td></td>
-		<th>Title</th>
-		<th>Description</th>
-		<th class="text-right"></th>
+		<th class="gsc-col-index text-right">#</th>
+		<td class="gsc-col-state text-center"></td>
+		<th class="gsc-col-title">Title</th>
+		<th class="gsc-col-description">Description</th>
+		<th class="gsc-col-actions text-right"></th>
 	</tr>
 	</thead>
 	<tbody>
 	<tr data-immutable="$ctrl.todos" data-ng-repeat="todo in $ctrl.todos" data-ng-class="::{'gsc-todo-done': todo.state == 'DONE'}">
-		<td scope="row">
+		<td scope="row" class="gsc-col-index text-right">
 			{{::$index}}
 		</td>
-		<td>
+		<td class="gsc-col-state text-center">
 			<a href=""
 			   data-ng-click="$ctrl.toggleStateFn.emit(todo)"
 			   title="Toggle State"
@@ -21,17 +21,17 @@
 				<i class="fa" data-ng-class="::{'OPEN': 'fa-square-o', 'DONE': 'fa-check-square-o'}[todo.state]"></i>
 			</a>
 		</td>
-		<td>
+		<td class="gsc-col-title text-truncate">
 			<a data-ui-sref="todo.edit({id: todo._id})"
-			   title="Edit Todo"
+			   data-ng-attr-title="Edit {{::todo.title}}"
 			   class="text-dark">
 				{{::todo.title}}
 			</a>
 		</td>
-		<td>
+		<td class="gsc-col-description text-truncate">
 			{{::todo.description}}
 		</td>
-		<td class="text-right">
+		<td class="gsc-col-actions text-right">
 			<a data-ui-sref="todo.edit({id: todo._id})"
 			   title="Edit Todo"
 			   class="badge badge-dark">

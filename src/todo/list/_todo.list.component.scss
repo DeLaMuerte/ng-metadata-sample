@@ -1,4 +1,23 @@
 gsc-todo-list {
+
+	.gsc-col-index {
+		width: 30px;
+	}
+	.gsc-col-state {
+		width: 30px;
+	}
+	.gsc-col-title {
+		width: auto;
+		max-width: 220px;
+	}
+	.gsc-col-description {
+		width: calc(70% - 124px);
+		//max-width: 3rem;
+	}
+	.gsc-col-actions {
+		width: 64px;
+	}
+
 	tr.gsc-todo-done > td {
 		text-decoration: line-through;
 
