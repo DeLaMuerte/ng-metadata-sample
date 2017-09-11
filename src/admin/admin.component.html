@@ -1,20 +1,66 @@
 <h1>Admin</h1>
 
-<uib-tabset>
-	<uib-tab index="0"
-			 heading="Tab 1">
-		<gsc-admin-tab1></gsc-admin-tab1>
-	</uib-tab>
-	<uib-tab index="1"
-			 heading="Tab 2">
-		<gsc-admin-tab2></gsc-admin-tab2>
-	</uib-tab>
-	<uib-tab index="2"
-			 heading="Tab 3">
-		<gsc-admin-tab3></gsc-admin-tab3>
-	</uib-tab>
-	<uib-tab index="3"
-			 heading="Tab 4">
-		<gsc-admin-tab4></gsc-admin-tab4>
-	</uib-tab>
-</uib-tabset>
+<!--<uib-tabset>-->
+	<!--<uib-tab index="0"-->
+			 <!--data-heading="Tab 1"-->
+			 <!--data-ui-sref="admin.tab1">-->
+	<!--</uib-tab>-->
+	<!--<uib-tab index="1"-->
+			 <!--data-heading="Tab 2"-->
+			 <!--data-ui-sref="admin.tab2">-->
+	<!--</uib-tab>-->
+	<!--<uib-tab index="2"-->
+			 <!--data-heading="Tab 3"-->
+			 <!--data-ui-sref="admin.tab3">-->
+	<!--</uib-tab>-->
+	<!--<uib-tab index="3"-->
+			 <!--data-heading="Tab 4"-->
+			 <!--data-ui-sref="admin.tab4">-->
+	<!--</uib-tab>-->
+<!--</uib-tabset>-->
+
+<!--<ui-view></ui-view>-->
+
+<div class="row">
+	<div class="col-2">
+		<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist">
+			<a class="nav-link"
+			   ui-sref-active="active"
+			   data-toggle="pill"
+			   data-ui-sref="admin.tab1"
+			   role="tab"
+			   aria-expanded="true">
+				Tab 1
+			</a>
+			<a class="nav-link"
+			   ui-sref-active="active"
+			   data-toggle="pill"
+			   data-ui-sref="admin.tab2"
+			   role="tab"
+			   aria-expanded="true">
+				Tab 2
+			</a>
+			<a class="nav-link"
+			   ui-sref-active="active"
+			   data-toggle="pill"
+			   data-ui-sref="admin.tab3"
+			   role="tab"
+			   aria-expanded="true">
+				Tab 3
+			</a>
+			<a class="nav-link"
+			   ui-sref-active="active"
+			   data-toggle="pill"
+			   data-ui-sref="admin.tab4"
+			   role="tab"
+			   aria-expanded="true">
+				Tab 4
+			</a>
+		</div>
+	</div>
+	<div class="col-10">
+		<div class="tab-content">
+			<div class="tab-pane active" role="tabpanel" data-ui-view></div>
+		</div>
+	</div>
+</div>
