@@ -11,7 +11,7 @@
 	<tbody>
 	<tr data-immutable="$ctrl.todos" data-ng-repeat="todo in $ctrl.todos" data-ng-class="::{'gsc-todo-done': todo.state == 'DONE'}">
 		<td scope="row" class="gsc-col-index text-right">
-			{{::$index}}
+			<span>{{::$index}}</span>
 		</td>
 		<td class="gsc-col-state text-center">
 			<a href=""
@@ -21,14 +21,14 @@
 				<i class="fa" data-ng-class="::{'OPEN': 'fa-square-o', 'DONE': 'fa-check-square-o'}[todo.state]"></i>
 			</a>
 		</td>
-		<td class="gsc-col-title text-truncate">
+		<td class="gsc-col-title">
 			<a data-ui-sref="todo.edit({id: todo._id})"
 			   data-ng-attr-title="Edit {{::todo.title}}"
 			   class="text-dark">
 				{{::todo.title}}
 			</a>
 		</td>
-		<td class="gsc-col-description text-truncate">
+		<td class="gsc-col-description">
 			{{::todo.description}}
 		</td>
 		<td class="gsc-col-actions text-right">

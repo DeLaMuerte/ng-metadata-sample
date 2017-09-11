@@ -7,12 +7,10 @@ gsc-todo-list {
 		width: 30px;
 	}
 	.gsc-col-title {
-		width: auto;
-		max-width: 220px;
+		width: 220px;
 	}
 	.gsc-col-description {
-		width: calc(70% - 124px);
-		//max-width: 3rem;
+		width: auto;
 	}
 	.gsc-col-actions {
 		width: 64px;
