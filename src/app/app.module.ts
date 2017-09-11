@@ -37,4 +37,4 @@ import {CommonModule} from '../common/common.module';
 })
 class AppModule {}
 
-export const AppNg1Module: string = bundle(AppModule, ['immutable']).name;
+export const AppNg1Module: string = bundle(AppModule, ['immutable', 'ui.bootstrap']).name;
