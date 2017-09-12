@@ -1,0 +1,42 @@
+.tabs-left, .tabs-right {
+	height: 100%;
+	border-bottom: 0 none;
+
+	& > .nav-link {
+		border-bottom: $nav-tabs-border-width solid transparent;
+
+		&:hover, &:active {
+			border-bottom-color: $nav-tabs-link-hover-border-color;
+		}
+
+		&.active {
+			border-bottom-color: $nav-tabs-border-color;
+		}
+	}
+}
+.tabs-left {
+	border-right: $nav-tabs-border-width solid $nav-tabs-border-color;
+
+	& > .nav-link {
+		margin-right: -1px;
+		border-top-right-radius: 0;
+		@include border-left-radius($nav-tabs-border-radius);
+
+		&:hover, &:active, &.active {
+			border-right-color: transparent;
+		}
+	}
+}
+.tabs-right {
+	border-left: $nav-tabs-border-width solid $nav-tabs-border-color;
+
+	& > .nav-link {
+		margin-left: -1px;
+		border-top-left-radius: 0;
+		@include border-right-radius($nav-tabs-border-radius);
+
+		&:hover, &:active, &.active {
+			border-left-color: transparent;
+		}
+	}
+}
