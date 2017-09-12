@@ -4,6 +4,7 @@ import {GsLocalstorage} from '../_vanilla/localstorage';
 export function TodoConfig($stateProvider: ng.ui.IStateProvider) {'ngInject';
 
 	Uribuilder.Instance.setRestUris('todo', new Map<string, string>([
+		['info',	'/todos'],
 		['list',	'/todos/_all_docs'],
 		['search',	'/todos/_find'],
 		['create',	'/todos'],

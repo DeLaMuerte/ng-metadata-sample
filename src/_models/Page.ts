@@ -1,10 +1,12 @@
 import * as angular from 'angular';
 import {Record, List} from 'immutable';
 
-let record = Record({
+let defaultValues = {
 	docs: List(),
 	warning: null
-});
+};
+
+let record = Record(defaultValues);
 
 export class Page<T> extends record {
 	public docs: List<T>;

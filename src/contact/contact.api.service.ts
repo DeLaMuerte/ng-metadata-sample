@@ -9,7 +9,7 @@ export class ContactApiService implements gs.IApiService {
 		@Inject("$http") private $http: ng.IHttpService
 	) {}
 
-	public $search(searchcriteria: gs.contact.IContactSearchcriteria): ng.IHttpPromise<any> {
+	public $search(searchcriteria: gs.contact.IContactSearchcriteria): ng.IHttpPromise<gs.IPage> {
 		return this.$http({
 			method: 'POST',
 			url: Uribuilder.Instance.getRestUri('contact', 'search'),

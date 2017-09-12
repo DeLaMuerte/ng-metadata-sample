@@ -28,5 +28,16 @@ export class AdminService {
 				});
 		}
 
+		public loadDbInfo(uri: string): Rx.Observable<gs.ICouchDbInfo | gs.ICouchDbInfoError> {
+			return Rx.Observable
+				.fromPromise(this.adminApiService.couchdb.getDbInfo(uri))
+				.map((response: ng.IHttpResponse<gs.ICouchDbInfo>) => {
+					return response.data;
+				})
+				.catch((error: ng.IHttpResponse<gs.ICouchDbInfoError>) => {
+					return Rx.Observable.throw(error.data);
+				})
+		}
+
 	}(this.commonAlertService, this.adminApiService)
 }

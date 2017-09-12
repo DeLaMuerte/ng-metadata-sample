@@ -25,6 +25,17 @@ export class AdminApiService {
 			});
 		}
 
+		public getDbInfo(uri: string): ng.IHttpPromise<gs.ICouchDbInfo | gs.ICouchDbInfoError> {
+			return this.$http({
+				method: 'GET',
+				url: uri,
+				headers: {
+					'Accept': 'application/json'
+				},
+				withCredentials: true,
+			});
+		}
+
 	}(this.$http);
 
 

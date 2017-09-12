@@ -2,13 +2,13 @@ import {Inject, Injectable} from 'ng-metadata/core';
 import {Uribuilder} from '../_vanilla/Uribuilder';
 
 @Injectable('loginApiService')
-export class LoginApiService implements gs.IApiService {
+export class LoginApiService {
 
 	constructor(
 		@Inject("$http") private $http: ng.IHttpService
 	) {}
 
-	public $create(credentials: {name: string, password: string}): ng.IHttpPromise<any> {
+	public $create(credentials: {name: string, password: string}): ng.IHttpPromise<gs.login.IUserCtx> {
 		return this.$http({
 			method: 'POST',
 			url: Uribuilder.Instance.getRestUri('login', 'create'),
@@ -21,7 +21,7 @@ export class LoginApiService implements gs.IApiService {
 		})
 	}
 
-	public $read(): ng.IHttpPromise<any> {
+	public $read(): ng.IHttpPromise<gs.login.ISession> {
 		return this.$http({
 			method: 'GET',
 			url: Uribuilder.Instance.getRestUri('login', 'read'),

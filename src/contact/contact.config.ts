@@ -3,6 +3,7 @@ import {Uribuilder} from '../_vanilla/Uribuilder';
 export function ContactConfig($stateProvider: ng.ui.IStateProvider) {'ngInject';
 
 	Uribuilder.Instance.setRestUris('contact', new Map<string, string>([
+		['info',	'/contacts'],
 		['list',	'/contacts/_all_docs'],
 		['search',	'/contacts/_find'],
 		['read',	'/contacts/%s'],

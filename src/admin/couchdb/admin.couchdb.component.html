@@ -1,8 +1,23 @@
 <h2>CouchDB</h2>
 
-<label>Status</label>
-<div class="card bg-light">
-	<div class="card-body">
-		<pre class="mb-0">{{$ctrl.couchdbStatus}}</pre>
+<hr />
+
+<div class="mb-4">
+	<h3>Status</h3>
+	<div class="card bg-light">
+		<div class="card-body">
+			<pre class="mb-0">{{$ctrl.couchdbStatus}}</pre>
+		</div>
 	</div>
+</div>
+
+<gsc-debug [gs-model]="$ctrl.dbs" [gs-pronto]="false"></gsc-debug>
+
+<div data-ng-repeat="db in $ctrl.dbs">
+
+	<hr />
+
+	<h3 class="mb-0">{{db.name}}</h3>
+	<p class="blockquote-footer">URI: {{db.uri}}</p>
+
 </div>

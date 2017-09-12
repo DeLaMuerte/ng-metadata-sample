@@ -35,7 +35,7 @@ export class TodoService {
 
 		return Rx.Observable
 			.fromPromise(this.todoApiService.$search(_searchcriteria))
-			.map((response: ng.IHttpResponse<any>): Page<Todo> => {
+			.map((response: ng.IHttpResponse<gs.IPage>): Page<Todo> => {
 				return new Page<Todo>(response.data, Todo);
 			}).do(null, (reason: ng.IHttpResponse<any>) => {
 				this.commonAlertService.error('An error has occurred while performing search for todos', reason.data);
